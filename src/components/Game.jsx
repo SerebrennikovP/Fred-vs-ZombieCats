@@ -1,5 +1,9 @@
 import React from "react";
 
 const Game = () => {
-  return <div>Game5</div>;
+  return (
+    <div>
+      <div>hello</div>
+    </div>
+  );
 };
