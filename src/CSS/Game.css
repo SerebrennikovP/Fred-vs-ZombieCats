@@ -1,0 +1,86 @@
+.game-wrapper {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.header-line,
+.footer-line {
+  margin: 0;
+  padding: 0;
+  height: calc((100vh - (100vw / (16 / 9))) / 2);
+}
+
+/* LINE 3 */
+
+.line3 {
+  position: relative;
+  animation-timing-function: ease-out;
+  animation-name: line3;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  /* animation-fill-mode: forwards; */
+}
+
+@keyframes line3 {
+  0% {
+    left: 51%;
+    top: 43%;
+    width: 0%;
+  }
+  95% {
+    left: 39.5%;
+    top: 39%;
+    width: 20%;
+  }
+  99% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 100%;
+  }
+  100% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 0%;
+    display: none;
+  }
+}
+
+/* LINE 5 */
+
+.line5 {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line5;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes line5 {
+  0% {
+  left: 53.5%;
+  top: 45%;
+    width: 0%;
+  }
+  95% {
+  left: 79%;
+  top: 40%;
+  width: 20%;
+  }
+  99% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 100%;
+  }
+  100% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 0%;
+    display: none;
+  }
+}
