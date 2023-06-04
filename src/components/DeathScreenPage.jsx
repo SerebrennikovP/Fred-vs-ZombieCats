@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/DeathScreenCss.css";
 
-const ExpandingSquare = () => {
+const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
 
@@ -46,4 +46,4 @@ const ExpandingSquare = () => {
   );
 };
 
-export default ExpandingSquare;
+export default DeathScreenPage;
