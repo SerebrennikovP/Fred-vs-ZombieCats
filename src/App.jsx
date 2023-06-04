@@ -1,11 +1,9 @@
-import "./CSS/App.css";
-import DeathScreenPage from "./components/DeathScreenPage";
+import './CSS/App.css';
 
 function App() {
   return (
     <div className="App">
       HELLO
-      <DeathScreenPage />
     </div>
   );
 }
