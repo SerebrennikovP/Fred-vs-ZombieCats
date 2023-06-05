@@ -19,6 +19,7 @@
   opacity: 0;
   transition: width 2s ease-out, height 2s ease-out, opacity 4.5s ease-out;
   backdrop-filter: blur(20px);
+  z-index: 999;
 }
 .expand {
   width: 100vw;
