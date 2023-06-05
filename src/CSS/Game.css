@@ -1,8 +1,7 @@
 .Game {
-    height: calc(100vw / (16 / 9));
-    margin-top: calc((100vh - (100vw / (16 / 9))) / 2);
+  height: calc(100vw / (16 / 9));
+  margin-top: calc((100vh - (100vw / (16 / 9))) / 2);
 }
-
 
 /* LINE 1 */
 
@@ -12,7 +11,9 @@
   animation-name: line1;
   animation-duration: 8s;
   animation-delay: 1s;
-  animation-iteration-count: infinite;
+  left: 49.5%;
+  top: 45%;
+  width: 0%;
 }
 
 @keyframes line1 {
@@ -37,48 +38,88 @@
     top: -25%;
     width: 100%;
     opacity: 0%;
-    display: none;
+  }
+}
+
+.line1-heart {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line1-heart;
+  animation-duration: 5s;
+  z-index: 9;
+}
+
+@keyframes line1-heart {
+  0% {
+    left: -1%;
+    top: 39%;
+    width: 20%;
+  }
+  100% {
+    left: 49.5%;
+    top: 45%;
+    width: 0%;
   }
 }
 
 /* LINE 2 */
 
 .line2 {
-    position: absolute;
-    animation-timing-function: ease-out;
-    animation-name: line2;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-delay: 3s;
-    /* animation-fill-mode: forwards; */
-  }
-  
-  @keyframes line2 {
-    0% {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line2;
+  animation-duration: 8s;
+  animation-delay: 3s;
+  left: 50.7%;
+  top: 45%;
+  width: 0%;
+}
+
+@keyframes line2 {
+  0% {
     left: 50.7%;
     top: 45%;
     width: 0%;
-    }
-    95% {
+  }
+  95% {
     left: 20.5%;
     top: 39%;
     width: 20%;
-    }
-    99% {
-      left: 0%;
-      top: -25%;
-      width: 100%;
-      opacity: 100%;
-    }
-    100% {
-      left: 0%;
-      top: -25%;
-      width: 100%;
-      opacity: 0%;
-      display: none;
-    }
   }
+  99% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 100%;
+  }
+  100% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 0%;
+  }
+}
 
+.line2-heart {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line2-heart;
+  animation-duration: 5s;
+  z-index: 9;
+}
+
+@keyframes line2-heart {
+  0% {
+    left: 20.5%;
+    top: 39%;
+    width: 20%;
+  }
+  100% {
+    left: 50.7%;
+    top: 45%;
+    width: 0%;
+  }
+}
 
 /* LINE 3 */
 
@@ -87,9 +128,9 @@
   animation-timing-function: ease-out;
   animation-name: line3;
   animation-duration: 8s;
-  animation-iteration-count: infinite;
-  animation-delay: 2s;
-  /* animation-fill-mode: forwards; */
+  left: 51%;
+  top: 45%;
+  width: 0%;
 }
 
 @keyframes line3 {
@@ -118,43 +159,85 @@
   }
 }
 
+.line3-heart {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line3-heart;
+  animation-duration: 5s;
+  z-index: 9;
+}
+
+@keyframes line3-heart {
+  0% {
+    left: 41%;
+    top: 39%;
+    width: 20%;
+  }
+  100% {
+    left: 51%;
+    top: 45%;
+    width: 0%;
+  }
+}
+
 /* LINE 4 */
 
 .line4 {
-    position: absolute;
-    animation-timing-function: ease-out;
-    animation-name: line4;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-delay: 4s;
-    /* animation-fill-mode: forwards; */
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line4;
+  animation-duration: 8s;
+  animation-delay: 4s;
+  left: 51.8%;
+  top: 45%;
+  width: 0%;
+}
+
+@keyframes line4 {
+  0% {
+    left: 51.8%;
+    top: 45%;
+    width: 0%;
   }
-  
-  @keyframes line4 {
-    0% {
-      left: 51.8%;
-      top: 45%;
-      width: 0%;
-    }
-    95% {
-      left: 58.5%;
-      top: 39%;
-      width: 20%;
-    }
-    99% {
-      left: 0%;
-      top: -25%;
-      width: 100%;
-      opacity: 100%;
-    }
-    100% {
-      left: 0%;
-      top: -25%;
-      width: 100%;
-      opacity: 0%;
-      display: none;
-    }
+  95% {
+    left: 58.5%;
+    top: 39%;
+    width: 20%;
   }
+  99% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 100%;
+  }
+  100% {
+    left: 0%;
+    top: -25%;
+    width: 100%;
+    opacity: 0%;
+  }
+}
+
+.line4-heart {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line4-heart;
+  animation-duration: 5s;
+  z-index: 9;
+}
+
+@keyframes line4-heart {
+  0% {
+    left: 58.5%;
+    top: 39%;
+    width: 20%;
+  }
+  100% {
+    left: 51.8%;
+    top: 45%;
+    width: 0%;
+  }
+}
 
 /* LINE 5 */
 
@@ -163,7 +246,9 @@
   animation-timing-function: ease-out;
   animation-name: line5;
   animation-duration: 8s;
-  animation-iteration-count: infinite;
+  left: 53.5%;
+  top: 45%;
+  width: 0%;
 }
 
 @keyframes line5 {
@@ -188,7 +273,26 @@
     top: -25%;
     width: 100%;
     opacity: 0%;
-    display: none;
   }
 }
 
+.line5-heart {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: line5-heart;
+  animation-duration: 5s;
+  z-index: 9;
+}
+
+@keyframes line5-heart {
+  0% {
+    left: 79%;
+    top: 39%;
+    width: 20%;
+  }
+  100% {
+    left: 53.5%;
+    top: 45%;
+    width: 0%;
+  }
+}
