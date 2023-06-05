@@ -9,7 +9,7 @@ const ScoreboardPage = () => {
     try {
       const res = await axios.get("http://localhost:8080/scoreboard");
       setScoresList(res.data);
-      console.log(res.data);
+      //   console.log(res.data)
     } catch (err) {
       console.log(err);
     }
@@ -22,12 +22,12 @@ const ScoreboardPage = () => {
     <div className="backgroundSquare">
       <button onClick={getScore}> Get score</button>
       <div className="ScoreboardTabble">
-        {scoresList.map((user) => {
-          console.log("userAdded");
+        {scoresList.map((user) => (
           <div className="ScoreboardTabbleUser">
-            {user.Nickname} {user.Scores}
-          </div>;
-        })}
+            <div className="userNickname userText">{user.Nickname}</div>{" "}
+            <div className="userScore userText"> {user.Scores}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

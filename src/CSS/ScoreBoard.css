@@ -16,19 +16,29 @@
     width: 100vw;
     height: 100vh;
     background-color: black;
-    opacity: 85%;
+    opacity: 90%;
     backdrop-filter: blur(20px);
-    /* z-index: 999; */
+    z-index: 999;
   }
 
   .ScoreboardTabble {
     display: flex;
-    border: 2px solid #BF1B1B;
+    flex-direction: column;
+    border: 2px solid #59220e;
     border-radius: 12px;
+
   }
 
   .ScoreboardTabbleUser {
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-family: "CustomFont";
     font-size: 26px;
+    color: #BF1B1B;
+    width: 50vw;
+    border-bottom: #BF1B1B 1px solid;
+  }
+  .userText {
+    margin: 1rem;
   }
   
