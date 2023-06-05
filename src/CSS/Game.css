@@ -1,16 +1,49 @@
+:root {
+  --cat-width: 0;
+  --heart-width: calc(100vw * 0.2);
+}
+
 .Game {
   height: calc(100vw / (16 / 9));
   margin-top: calc((100vh - (100vw / (16 / 9))) / 2);
 }
+/* MAIN */
+.fred {
+  z-index: 10000;
+}
+
+.heart {
+  z-index: var(--heart-width);
+}
+
+.cats {
+  z-index: var(--cat-width);
+}
+
+.cat1 {
+  animation-duration: 8s;
+}
+
+.cat2 {
+  animation-duration: 5s;
+}
 
 /* LINE 1 */
+
+.line1-fred {
+    position: absolute;
+    left: -10%;
+    bottom: 0;
+    width: 40%;
+    opacity: 40%;
+    z-index: 10000;
+  }
+  
 
 .line1 {
   position: absolute;
   animation-timing-function: ease-out;
   animation-name: line1;
-  animation-duration: 8s;
-  animation-delay: 1s;
   left: 49.5%;
   top: 45%;
   width: 0%;
@@ -32,12 +65,14 @@
     top: -25%;
     width: 100%;
     opacity: 100%;
+    z-index: 100000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
+    z-index: 100000;
   }
 }
 
@@ -46,7 +81,6 @@
   animation-timing-function: ease-out;
   animation-name: line1-heart;
   animation-duration: 5s;
-  z-index: 9;
 }
 
 @keyframes line1-heart {
@@ -64,12 +98,20 @@
 
 /* LINE 2 */
 
+.line2-fred {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    width: 40%;
+    opacity: 40%;
+    z-index: 10000;
+  }
+  
+
 .line2 {
   position: absolute;
   animation-timing-function: ease-out;
   animation-name: line2;
-  animation-duration: 8s;
-  animation-delay: 3s;
   left: 50.7%;
   top: 45%;
   width: 0%;
@@ -91,12 +133,14 @@
     top: -25%;
     width: 100%;
     opacity: 100%;
+    z-index: 100000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
+    z-index: 100000;
   }
 }
 
@@ -105,7 +149,6 @@
   animation-timing-function: ease-out;
   animation-name: line2-heart;
   animation-duration: 5s;
-  z-index: 9;
 }
 
 @keyframes line2-heart {
@@ -123,11 +166,19 @@
 
 /* LINE 3 */
 
+.line3-fred {
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+  width: 40%;
+  opacity: 40%;
+  z-index: 10000;
+}
+
 .line3 {
   position: absolute;
   animation-timing-function: ease-out;
   animation-name: line3;
-  animation-duration: 8s;
   left: 51%;
   top: 45%;
   width: 0%;
@@ -149,13 +200,14 @@
     top: -25%;
     width: 100%;
     opacity: 100%;
+    z-index: 100000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
-    display: none;
+    z-index: 100000;
   }
 }
 
@@ -164,7 +216,6 @@
   animation-timing-function: ease-out;
   animation-name: line3-heart;
   animation-duration: 5s;
-  z-index: 9;
 }
 
 @keyframes line3-heart {
@@ -182,12 +233,20 @@
 
 /* LINE 4 */
 
+.line4-fred {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 40%;
+    opacity: 40%;
+    z-index: 10000;
+  }
+  
+
 .line4 {
   position: absolute;
   animation-timing-function: ease-out;
   animation-name: line4;
-  animation-duration: 8s;
-  animation-delay: 4s;
   left: 51.8%;
   top: 45%;
   width: 0%;
@@ -209,12 +268,14 @@
     top: -25%;
     width: 100%;
     opacity: 100%;
+    z-index: 100000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
+    z-index: 100000;
   }
 }
 
@@ -223,7 +284,6 @@
   animation-timing-function: ease-out;
   animation-name: line4-heart;
   animation-duration: 5s;
-  z-index: 9;
 }
 
 @keyframes line4-heart {
@@ -241,11 +301,20 @@
 
 /* LINE 5 */
 
+.line5-fred {
+    position: absolute;
+    left: 70%;
+    bottom: 0;
+    width: 40%;
+    opacity: 40%;
+    z-index: 10000;
+  }
+  
+
 .line5 {
   position: absolute;
   animation-timing-function: ease-out;
   animation-name: line5;
-  animation-duration: 8s;
   left: 53.5%;
   top: 45%;
   width: 0%;
@@ -267,12 +336,14 @@
     top: -25%;
     width: 100%;
     opacity: 100%;
+    z-index: 100000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
+    z-index: 100000;
   }
 }
 
@@ -281,7 +352,6 @@
   animation-timing-function: ease-out;
   animation-name: line5-heart;
   animation-duration: 5s;
-  z-index: 9;
 }
 
 @keyframes line5-heart {
