@@ -6,12 +6,14 @@ html body {
 }
 
 .home-page {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 .logo-banner {
   display: flex;
   justify-content: center;
-  padding: 9%;
+  padding: 6%;
 }
 
 .game-instructions {
@@ -19,12 +21,13 @@ html body {
   flex-direction: column;
   align-items: center;
   padding: 3%;
+
   /* background-color: bisque; */
 }
 .how-to-play {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   margin-bottom: 5%;
 }
 .play-button-div {
@@ -34,7 +37,7 @@ html body {
 }
 .play-button {
   padding: 5px 0px 5px 0px;
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   text-align: center;
   margin: 0 60px 0 60px;
 }
@@ -46,4 +49,18 @@ html body {
 .instructions {
   /* background-color: aquamarine; */
   display: flex;
+  margin-bottom: 0.5rem;
+}
+.kbd {
+  border: 1px solid black;
+}
+.space {
+  padding: 0rem 3rem 0rem 3rem;
+}
+.instruction-div {
+  border: 2px solid black;
+  padding: 1rem 1rem 0rem 1rem;
+}
+.story-of-game {
+  margin-bottom: 1rem;
 }
