@@ -9,12 +9,6 @@ import logo from "../images/Logo.png";
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const playHandler = () => {
-    console.log("clicked");
-    // navigate("/game");
-    Element.requestFullscreen();
-  };
-
   return (
     <div
       className="home-page"
@@ -83,7 +77,7 @@ const HomePage = () => {
             // color: "#fffffb",
           }}
         >
-          <button onClick={playHandler}>Play!</button>
+          <button onClick={() => navigate("/game")}>Play!</button>
         </div>
       </div>
     </div>
