@@ -3,3 +3,13 @@
 
   src: url("../fonts/FVRIOSA.TTF") format("truetype");
 }
+@font-face {
+  font-family: "Eater";
+
+  src: url("../fonts/Eater-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MarcellusSC";
+
+  src: url("../fonts/MarcellusSC-Regular.ttf") format("truetype");
+}

@@ -3,7 +3,7 @@ import { Kbd } from "@chakra-ui/layout";
 import { useNavigate } from "react-router-dom";
 import darkforest from "../images/darkforest.gif";
 import "../CSS/CustomFont.css";
-import logo from '../images/Logo.png'
+import logo from "../images/Logo.png";
 
 const HomePage = () => {
   console.log(darkforest);
@@ -15,7 +15,7 @@ const HomePage = () => {
         backgroundImage: `url(${darkforest})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        filter: "grayscale(50%)",
+        // filter: "grayscale(50%)",
       }}
     >
       <div className="logo-banner">
@@ -27,27 +27,33 @@ const HomePage = () => {
             className="story"
             style={{
               fontFamily: "FVRIOSA",
-              fontSize: "2rem",
+              fontSize: "1.5rem",
             }}
           >
-            Story:
+            Story
           </div>
           <div
             style={{
-              fontFamily: "FVRIOSA",
+              fontFamily: "Eater",
               fontSize: "1rem",
               color: "#fffffb",
             }}
           >
-            In Pleasantville, a once peaceful town, a catastrophic experiment at
-            a local laboratory has unleashed a virus that turned cats into
-            flesh-eating zombies. The town is in chaos, and Fred, an animal
-            lover with a heart of gold, rises as the towns last hope. Armed with
-            enchanted hearts, Fred embarks on a perilous mission to heal the
-            infected felines and restore harmony to Pleasantville.
+            In Pleasantville, a catastrophic experiment at a local lab unleashed
+            a virus, turning cats into flesh-eating zombies. Fred, an animal
+            lover, becomes the town's last hope armed with enchanted hearts. He
+            captures infected cats, using the hearts to heal them.
           </div>
         </div>
-        <div className="instruction-div">
+        <div
+          className="instruction-div"
+          style={{
+            fontFamily: "MarcellusSC",
+            fontSize: "1.1rem",
+            fontWeight: "bold",
+            color: "black",
+          }}
+        >
           <div className="how-to-play">how to play:</div>
           <div className="instructions">
             To move Fred: <Kbd className="kbd">{"⬅"}</Kbd>
@@ -63,7 +69,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="play-button-div">
-        <div className="play-button">
+        <div
+          className="play-button"
+          style={{
+            fontFamily: "FVRIOSA",
+            fontSize: "1rem",
+            // color: "#fffffb",
+          }}
+        >
           <button onClick={() => navigate("/game")}>Play!</button>
         </div>
       </div>
