@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "CustomFont";
+
+  src: url("../fonts/FVRIOSA.TTF") format("truetype");
+}
+
 .expanding-square {
   display: flex;
   align-items: center;
@@ -31,8 +37,8 @@
   opacity: 1;
 }
 .death-background:first-child {
-  color: #ff0000;
-  font-family: OptimusPrinceps, sans-serif;
+  color: #BF1B1B;
+  font-family: "CustomFont";
   letter-spacing: 5px;
   font-size: 8em;
   font-weight: 400;
@@ -40,20 +46,22 @@
 }
 .scoreCount {
   margin: 0;
+  margin-top: 2rem;
   font-size: 30px;
 }
 
 .deathLeaderBtnsDiv {
   display: flex;
   flex-direction: row;
+  margin-top: 6rem;
 }
 .deathBtns {
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #ff0000;
+  color: #BF1B1B;
   border-radius: 12px;
-  border: solid #ff0000 2px;
+  border: solid #BF1B1B 2px;
   padding: 2rem;
   margin: 0 2rem;
   cursor: pointer;
