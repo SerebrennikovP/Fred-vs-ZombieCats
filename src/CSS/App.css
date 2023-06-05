@@ -12,6 +12,7 @@ html body {
   display: flex;
   justify-content: center;
   padding: 9%;
+  padding-bottom: 0;
 }
 
 .game-instructions {

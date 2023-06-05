@@ -3,6 +3,7 @@ import { Kbd } from "@chakra-ui/layout";
 import { useNavigate } from "react-router-dom";
 import darkforest from "../images/darkforest.gif";
 import "../CSS/CustomFont.css";
+import logo from '../images/Logo.png'
 
 const HomePage = () => {
   console.log(darkforest);
@@ -17,7 +18,7 @@ const HomePage = () => {
       }}
     >
       <div className="logo-banner">
-        <img src="" alt="game-logo" />
+        <img src={logo} alt="logo" />
       </div>
       <div className="game-instructions">
         <div className="rules-of-game">
