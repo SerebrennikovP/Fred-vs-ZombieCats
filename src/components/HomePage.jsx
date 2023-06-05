@@ -62,7 +62,14 @@ const HomePage = () => {
         </div>
       </div>
       <div className="play-button-div">
-        <div className="play-button">
+        <div
+          className="play-button"
+          style={{
+            fontFamily: "FVRIOSA",
+            fontSize: "1rem",
+            // color: "#fffffb",
+          }}
+        >
           <button onClick={() => navigate("/game")}>Play!</button>
         </div>
       </div>
