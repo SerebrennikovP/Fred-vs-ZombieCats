@@ -63,7 +63,7 @@ const HomePage = () => {
           <div className="instructions">
             To send healing hearts:
             <Kbd className="kbd">
-              <span className="space">{"⎵"}</span>
+              <span className="space">{"space"}</span>
             </Kbd>
           </div>
         </div>
