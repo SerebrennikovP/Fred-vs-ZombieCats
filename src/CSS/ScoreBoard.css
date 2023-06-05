@@ -18,7 +18,17 @@
     background-color: black;
     opacity: 85%;
     backdrop-filter: blur(20px);
-    z-index: 999;
+    /* z-index: 999; */
   }
 
+  .ScoreboardTabble {
+    display: flex;
+    border: 2px solid #BF1B1B;
+    border-radius: 12px;
+  }
+
+  .ScoreboardTabbleUser {
+    color: white;
+    font-size: 26px;
+  }
   
