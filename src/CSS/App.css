@@ -7,16 +7,13 @@ html body {
 }
 
 .home-page {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
 }
 .logo-banner {
   display: flex;
   justify-content: center;
-  padding: 0 2% 0 0;
+  padding: 0 5% 0 0;
   padding-top: 0%;
-
   padding-bottom: 0;
 }
 
@@ -55,6 +52,7 @@ html body {
   -webkit-animation: heart-beat 3.5s steps(1) infinite;
   -moz-animation: heart-beat 3.5s steps(1) infinite;
   -o-animation: heart-beat 3.5s steps(1) infinite;
+
   animation-fill-mode: forwards;
 }
 .play-button:hover {
@@ -83,8 +81,13 @@ html body {
 .instruction-div {
   border: 4mm ridge rgba(32, 54, 34, 0.5);
   padding: 0rem 1rem 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(120, 177, 115, 0.4);
 }
 .story-of-game {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1rem;
   animation-name: glitch-anim-text;
   animation-duration: 5s;

@@ -1,13 +1,20 @@
 import React from "react";
 import { Kbd } from "@chakra-ui/layout";
+
 import { useNavigate } from "react-router-dom";
 import darkforest from "../images/darkforest.gif";
 import "../CSS/CustomFont.css";
 import logo from "../images/Logo.png";
 
 const HomePage = () => {
-  console.log(darkforest);
   const navigate = useNavigate();
+
+  const playHandler = () => {
+    console.log("clicked");
+    // navigate("/game");
+    Element.requestFullscreen();
+  };
+
   return (
     <div
       className="home-page"
@@ -15,7 +22,6 @@ const HomePage = () => {
         backgroundImage: `url(${darkforest})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        // filter: "grayscale(50%)",
       }}
     >
       <div className="logo-banner">
@@ -77,7 +83,7 @@ const HomePage = () => {
             // color: "#fffffb",
           }}
         >
-          <button onClick={() => navigate("/game")}>Play!</button>
+          <button onClick={playHandler}>Play!</button>
         </div>
       </div>
     </div>
