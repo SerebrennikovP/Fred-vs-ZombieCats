@@ -1,13 +1,14 @@
 import React from "react";
 import { Kbd } from "@chakra-ui/layout";
+
 import { useNavigate } from "react-router-dom";
 import darkforest from "../images/darkforest.gif";
 import "../CSS/CustomFont.css";
 import logo from "../images/Logo.png";
 
 const HomePage = () => {
-  console.log(darkforest);
   const navigate = useNavigate();
+
   return (
     <div
       className="home-page"
@@ -15,7 +16,6 @@ const HomePage = () => {
         backgroundImage: `url(${darkforest})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        // filter: "grayscale(50%)",
       }}
     >
       <div className="logo-banner">
