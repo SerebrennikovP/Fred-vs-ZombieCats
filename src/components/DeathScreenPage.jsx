@@ -30,10 +30,12 @@ const DeathScreenPage = () => {
     };
   }, []);
 
-  setNewUser({
-    Nickname: userName,
-    Scores: scores,
-  });
+  useEffect(() => {
+    setNewUser({
+      Nickname: userName,
+      Scores: scores,
+    });
+  }, [userName])
   
   const submitScore = async () => {
     try {
