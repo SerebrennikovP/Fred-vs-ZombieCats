@@ -48,7 +48,7 @@ const HomePage = () => {
         <div
           className="instruction-div"
           style={{
-            fontFamily: "MarcellusSC",
+            fontFamily: "Eater",
             fontSize: "1.1rem",
             fontWeight: "bold",
             color: "black",
