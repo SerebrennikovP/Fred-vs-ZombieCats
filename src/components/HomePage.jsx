@@ -4,6 +4,7 @@ import { Kbd } from "@chakra-ui/layout";
 import { useNavigate } from "react-router-dom";
 import darkforest from "../images/darkforest.gif";
 import "../CSS/CustomFont.css";
+import "../CSS/HomePage.css";
 import logo from "../images/Logo.png";
 
 const HomePage = () => {
@@ -21,20 +22,21 @@ const HomePage = () => {
       <div className="logo-banner">
         <img src={logo} alt="logo" />
       </div>
+
       <div className="game-instructions">
         <div className="story-of-game">
           <div
             className="story"
             style={{
               fontFamily: "FVRIOSA",
-              fontSize: "1.5rem",
+              fontSize: "2rem",
             }}
           >
             Story
           </div>
           <div
             style={{
-              fontFamily: "Eater",
+              fontFamily: "MarcellusSC",
               fontSize: "1rem",
               color: "#fffffb",
             }}
@@ -56,15 +58,24 @@ const HomePage = () => {
         >
           <div className="how-to-play">how to play:</div>
           <div className="instructions">
-            To move Fred: <Kbd className="kbd">{"⬅"}</Kbd>
-            <b>+</b>
-            <Kbd className="kbd">{"➡"}</Kbd>
+            <div>To move Fred:</div>
+            <div>
+              <Kbd className="kbd">{"⬅"}</Kbd>
+            </div>
+            <div>
+              <b>+</b>
+            </div>
+            <div>
+              <Kbd className="kbd">{"➡"}</Kbd>
+            </div>
           </div>
           <div className="instructions">
-            To send healing hearts:
-            <Kbd className="kbd">
-              <span className="space">{"space"}</span>
-            </Kbd>
+            <div>To send healing hearts:</div>
+            <div>
+              <Kbd className="kbd">
+                <span className="space">{"space"}</span>
+              </Kbd>
+            </div>
           </div>
         </div>
       </div>
