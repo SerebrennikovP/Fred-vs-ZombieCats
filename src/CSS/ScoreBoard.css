@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -20,13 +20,24 @@
     backdrop-filter: blur(20px);
     z-index: 999;
   }
-
+.deathBtns {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #BF1B1B;
+  border-radius: 12px;
+  border: solid #BF1B1B 2px;
+  padding: 2rem;
+  margin: 0 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: "CustomFont";
+}
   .ScoreboardTabble {
     display: flex;
     flex-direction: column;
     border: 2px solid #59220e;
     border-radius: 12px;
-
   }
 
   .ScoreboardTabbleUser {
@@ -40,5 +51,12 @@
   }
   .userText {
     margin: 1rem;
+  }
+  .userPlace {
+    display: flex;
+    margin-right: 0;
+  }
+  .userNickname {
+    margin-left: 0;
   }
   
