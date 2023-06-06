@@ -1,23 +1,10 @@
-:root {
-  --cat-width: 0;
-  --heart-width: calc(100vw * 0.2);
-}
-
 .Game {
   height: calc(100vw / (16 / 9));
   margin-top: calc((100vh - (100vw / (16 / 9))) / 2);
 }
 /* MAIN */
 .fred {
-  z-index: 10000;
-}
-
-.heart {
-  z-index: var(--heart-width);
-}
-
-.cats {
-  z-index: var(--cat-width);
+  z-index: 90000;
 }
 
 .cat1 {
@@ -36,7 +23,6 @@
     bottom: 0;
     width: 40%;
     opacity: 40%;
-    z-index: 10000;
   }
   
 
@@ -47,6 +33,7 @@
   left: 49.5%;
   top: 45%;
   width: 0%;
+  z-index: 0;
 }
 
 @keyframes line1 {
@@ -54,25 +41,27 @@
     left: 49.5%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
   95% {
     left: -1%;
     top: 39%;
     width: 20%;
+    z-index: 10000;
   }
   99% {
     left: 0;
     top: -25%;
     width: 100%;
     opacity: 100%;
-    z-index: 100000;
+    z-index: 1000000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
-    z-index: 100000;
+    z-index: 1000000;
   }
 }
 
@@ -81,6 +70,7 @@
   animation-timing-function: ease-out;
   animation-name: line1-heart;
   animation-duration: 5s;
+  z-index: 10001;
 }
 
 @keyframes line1-heart {
@@ -88,11 +78,13 @@
     left: -1%;
     top: 39%;
     width: 20%;
+    z-index: 10001;
   }
   100% {
     left: 49.5%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
 }
 
@@ -104,7 +96,6 @@
     bottom: 0;
     width: 40%;
     opacity: 40%;
-    z-index: 10000;
   }
   
 
@@ -115,6 +106,7 @@
   left: 50.7%;
   top: 45%;
   width: 0%;
+  z-index: 0;
 }
 
 @keyframes line2 {
@@ -122,11 +114,13 @@
     left: 50.7%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
   95% {
     left: 20.5%;
     top: 39%;
     width: 20%;
+    z-index: 10000;
   }
   99% {
     left: 0%;
@@ -149,6 +143,7 @@
   animation-timing-function: ease-out;
   animation-name: line2-heart;
   animation-duration: 5s;
+  z-index: 10001;
 }
 
 @keyframes line2-heart {
@@ -156,11 +151,13 @@
     left: 20.5%;
     top: 39%;
     width: 20%;
+    z-index: 10001;
   }
   100% {
     left: 50.7%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
 }
 
@@ -182,6 +179,7 @@
   left: 51%;
   top: 45%;
   width: 0%;
+  z-index: 0;
 }
 
 @keyframes line3 {
@@ -189,11 +187,13 @@
     left: 51%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
   95% {
     left: 39.5%;
     top: 39%;
     width: 20%;
+    z-index: 10000;
   }
   99% {
     left: 0%;
@@ -216,6 +216,7 @@
   animation-timing-function: ease-out;
   animation-name: line3-heart;
   animation-duration: 5s;
+  z-index: 10001;
 }
 
 @keyframes line3-heart {
@@ -223,11 +224,13 @@
     left: 41%;
     top: 39%;
     width: 20%;
+    z-index: 10001;
   }
   100% {
     left: 51%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
 }
 
@@ -239,7 +242,6 @@
     bottom: 0;
     width: 40%;
     opacity: 40%;
-    z-index: 10000;
   }
   
 
@@ -250,6 +252,7 @@
   left: 51.8%;
   top: 45%;
   width: 0%;
+  z-index: 0;
 }
 
 @keyframes line4 {
@@ -257,11 +260,13 @@
     left: 51.8%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
   95% {
     left: 58.5%;
     top: 39%;
     width: 20%;
+    z-index: 10000;
   }
   99% {
     left: 0%;
@@ -284,6 +289,7 @@
   animation-timing-function: ease-out;
   animation-name: line4-heart;
   animation-duration: 5s;
+  z-index: 10001;
 }
 
 @keyframes line4-heart {
@@ -291,11 +297,13 @@
     left: 58.5%;
     top: 39%;
     width: 20%;
+    z-index: 10001;
   }
   100% {
     left: 51.8%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
 }
 
@@ -307,7 +315,6 @@
     bottom: 0;
     width: 40%;
     opacity: 40%;
-    z-index: 10000;
   }
   
 
@@ -318,6 +325,7 @@
   left: 53.5%;
   top: 45%;
   width: 0%;
+  z-index: 0;
 }
 
 @keyframes line5 {
@@ -325,11 +333,13 @@
     left: 53.5%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
   95% {
     left: 79%;
     top: 39%;
     width: 20%;
+    z-index: 10000;
   }
   99% {
     left: 0;
@@ -352,6 +362,7 @@
   animation-timing-function: ease-out;
   animation-name: line5-heart;
   animation-duration: 5s;
+  z-index: 10001;
 }
 
 @keyframes line5-heart {
@@ -359,10 +370,12 @@
     left: 79%;
     top: 39%;
     width: 20%;
+    z-index: 10001;
   }
   100% {
     left: 53.5%;
     top: 45%;
     width: 0%;
+    z-index: 0;
   }
 }

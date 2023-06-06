@@ -34,19 +34,16 @@ const Game = () => {
     ];
 
     elements.forEach(({ catElement, heartElement }) => {
-      let catWidth;
-      let heartWidth;
-      if (catElement) catWidth = parseInt(getComputedStyle(catElement).width)
-      if (heartElement) {
-        heartWidth = parseInt(getComputedStyle(heartElement).width);
-        heartElement.style.zIndex = (heartWidth * window.innerWidth * 1000).toString();
-        // heartElement.style.setProperty("--heart-width", heartWidth);
-      }
-      if (Math.abs(catWidth - heartWidth) < 3) {
+      let catZIndex;
+      let heartZIndex;
+      if (catElement) catZIndex = parseInt(getComputedStyle(catElement).zIndex)
+      if (heartElement) heartZIndex = parseInt(getComputedStyle(heartElement).zIndex);
+
+      if (Math.abs(catZIndex - heartZIndex) < 100) {
         setCats(cats.filter((el) => el.id != catElement.id))
         setHearts(hearts.filter((el) => el.id != heartElement.id))
       }
-      if (heartWidth === 0) {
+      if (heartZIndex === 0) {
         setHearts(hearts.filter((el) => el.id != heartElement.id))
       }
       if (catElement && parseInt(getComputedStyle(catElement).opacity) === 0) {
@@ -114,8 +111,8 @@ const Game = () => {
         overflow: "hidden",
       }}
     >
-      {lifes > 0 && <img className={`fred line${position}-fred`} src={Fred}/>}
-      
+      {lifes > 0 && <img className={`fred line${position}-fred`} src={Fred} />}
+
       {lifes > 0 && hearts.map((heart) => (
         <img
           key={heart.id}
