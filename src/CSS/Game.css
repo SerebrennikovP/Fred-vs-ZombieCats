@@ -4,27 +4,43 @@
 }
 /* MAIN */
 .fred {
-  z-index: 90000;
+  z-index: 20000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  transition: opacity 0.1s;
 }
+
+.healing{
+  filter: invert(1);
+}
+
+/*//////////////////////////// SPEED ////////////////////////////*/
 
 .cat1 {
   animation-duration: 8s;
 }
 
 .cat2 {
+  animation-duration: 8s;
+}
+
+.cat3 {
+  animation-duration: 4s;
+}
+
+.cat4 {
   animation-duration: 5s;
 }
 
-/* LINE 1 */
+.cat5 {
+  animation-duration: 15s;
+}
 
-.line1-fred {
-    position: absolute;
-    left: -10%;
-    bottom: 0;
-    width: 40%;
-    opacity: 40%;
-  }
-  
+/*//////////////////////////// SPEED ////////////////////////////*/
+
+/* LINE 1 */
 
 .line1 {
   position: absolute;
@@ -54,14 +70,14 @@
     top: -25%;
     width: 100%;
     opacity: 100%;
-    z-index: 1000000;
+    z-index: 100000;
   }
   100% {
     left: 0%;
     top: -25%;
     width: 100%;
     opacity: 0%;
-    z-index: 1000000;
+    z-index: 100000;
   }
 }
 
@@ -70,11 +86,17 @@
   animation-timing-function: ease-out;
   animation-name: line1-heart;
   animation-duration: 5s;
-  z-index: 10001;
+  z-index: 10500;
 }
 
 @keyframes line1-heart {
   0% {
+    z-index: 10500;
+    left: -10%;
+    top: 42%;
+    width: 30%;
+  }
+  5% {
     left: -1%;
     top: 39%;
     width: 20%;
@@ -89,15 +111,6 @@
 }
 
 /* LINE 2 */
-
-.line2-fred {
-    position: absolute;
-    left: 10%;
-    bottom: 0;
-    width: 40%;
-    opacity: 40%;
-  }
-  
 
 .line2 {
   position: absolute;
@@ -143,11 +156,17 @@
   animation-timing-function: ease-out;
   animation-name: line2-heart;
   animation-duration: 5s;
-  z-index: 10001;
+  z-index: 10500;
 }
 
 @keyframes line2-heart {
   0% {
+    z-index: 10500;
+    left: 8%;
+    top: 48%;
+    width: 30%;
+  }
+  5% {
     left: 20.5%;
     top: 39%;
     width: 20%;
@@ -162,15 +181,6 @@
 }
 
 /* LINE 3 */
-
-.line3-fred {
-  position: absolute;
-  left: 30%;
-  bottom: 0;
-  width: 40%;
-  opacity: 40%;
-  z-index: 10000;
-}
 
 .line3 {
   position: absolute;
@@ -216,11 +226,17 @@
   animation-timing-function: ease-out;
   animation-name: line3-heart;
   animation-duration: 5s;
-  z-index: 10001;
+  z-index: 10500;
 }
 
 @keyframes line3-heart {
   0% {
+    z-index: 10500;
+    left: 36%;
+    top: 51%;
+    width: 30%;
+  }
+  5% {
     left: 41%;
     top: 39%;
     width: 20%;
@@ -235,15 +251,6 @@
 }
 
 /* LINE 4 */
-
-.line4-fred {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 40%;
-    opacity: 40%;
-  }
-  
 
 .line4 {
   position: absolute;
@@ -289,11 +296,17 @@
   animation-timing-function: ease-out;
   animation-name: line4-heart;
   animation-duration: 5s;
-  z-index: 10001;
+  z-index: 10500;
 }
 
 @keyframes line4-heart {
   0% {
+    z-index: 10500;
+    left: 63%;
+    top: 45.5%;
+    width: 30%;
+  }
+  5% {
     left: 58.5%;
     top: 39%;
     width: 20%;
@@ -308,15 +321,6 @@
 }
 
 /* LINE 5 */
-
-.line5-fred {
-    position: absolute;
-    left: 70%;
-    bottom: 0;
-    width: 40%;
-    opacity: 40%;
-  }
-  
 
 .line5 {
   position: absolute;
@@ -362,11 +366,17 @@
   animation-timing-function: ease-out;
   animation-name: line5-heart;
   animation-duration: 5s;
-  z-index: 10001;
+  z-index: 10500;
 }
 
 @keyframes line5-heart {
   0% {
+    z-index: 10500;
+    left: 81%;
+    top: 43%;
+    width: 30%;
+  }
+  5% {
     left: 79%;
     top: 39%;
     width: 20%;
@@ -378,4 +388,85 @@
     width: 0%;
     z-index: 0;
   }
+}
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+  position:absolute;
+  color: #bf1b1b;
+  z-index:30000;
+  border-radius: 50%;
+  background-color: #ffffff65;
+}
+
+.timer-wrapper1 {
+  left:-2%;
+  top:59%;
+}
+.timer-wrapper2 {
+  left:17.5%;
+  top:65%;
+}
+.timer-wrapper3 {
+  left:45%;
+  top:65%;
+}
+.timer-wrapper4 {
+  left:71.5%;
+  top:60%;
+}
+.timer-wrapper5 {
+  left:89.5%;
+  top:57%;
+}
+
+.timer {
+  font-family: "CustomFont";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  color: #000000;
+  font-size: 1vw;
+}
+
+.value {
+  margin-top:-20%;
+  margin-bottom:-10%;
+  font-size: 5vw;
+}
+
+
+.ammo {
+  position:absolute;
+  width:10vw;
+  text-align: center;
+  color: #fff;
+  font-family: "CustomFont";
+  z-index:30000;
+  font-size: 2.5vw;
+}
+
+.ammo1 {
+  left:-0.5%;
+  top:64.5%;
+}
+.ammo2 {
+  left:18%;
+  top:70%;
+}
+.ammo3 {
+  left:46%;
+  top: 73.5%;
+}
+.ammo4 {
+  left:72.8%;
+  top:67.5%;
+}
+.ammo5 {
+  left:90.5%;
+  top:64.5%;
 }

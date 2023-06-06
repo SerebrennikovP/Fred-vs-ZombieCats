@@ -2,19 +2,29 @@ import React, { useState, useEffect } from "react";
 import BG from '../images/Zombie-Cats_BG.png'
 import Cat1 from "../images/Zombie-cat-1.png"
 import Cat2 from "../images/Zombie-cat-2.png"
+import Cat3 from "../images/Zombie-cat-3.png"
+import Cat4 from "../images/Zombie-cat-4.png"
+import Cat5 from "../images/Zombie-cat-5.png"
 import Heart from '../images/heart.png'
-import Fred from '../images/Fred.png'
+import Fred1 from '../images/Fred1.png'
+import Fred2 from '../images/Fred2.png'
+import Fred3 from '../images/Fred3.png'
+import Fred4 from '../images/Fred4.png'
+import Fred5 from '../images/Fred5.png'
 import "../CSS/Game.css"
 import Chance from 'chance';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 
-const Game = () => {
+const Game = ({ setLifes, lifes, score, setScore }) => {
   const [ms, setMs] = useState(0);
-  const [lifes, setLifes] = useState(3000000);
   const [cats, setCats] = useState([]);
   const [hearts, setHearts] = useState([]);
   const [position, setPosition] = useState(3)
-  const [allCats, setAllCats] = useState([Cat1, Cat2])
+  const [allCats, setAllCats] = useState([Cat1, Cat2, Cat3, Cat4, Cat5])
+  const [heartCounter, setHeartCounter] = useState(0)
+  const [reloading, setReloading] = useState(false)
+  const regex = /lifes(\d+)/;
 
   const chance = new Chance();
 
@@ -26,39 +36,113 @@ const Game = () => {
 
   useEffect(() => {
     const elements = [
-      { catElement: document.querySelector(".line1"), heartElement: document.querySelector(".line1-heart") },
-      { catElement: document.querySelector(".line2"), heartElement: document.querySelector(".line2-heart") },
-      { catElement: document.querySelector(".line3"), heartElement: document.querySelector(".line3-heart") },
-      { catElement: document.querySelector(".line4"), heartElement: document.querySelector(".line4-heart") },
-      { catElement: document.querySelector(".line5"), heartElement: document.querySelector(".line5-heart") },
+      { catElementAll: document.querySelectorAll(".line1"), heartElement: document.querySelector(".line1-heart") },
+      { catElementAll: document.querySelectorAll(".line2"), heartElement: document.querySelector(".line2-heart") },
+      { catElementAll: document.querySelectorAll(".line3"), heartElement: document.querySelector(".line3-heart") },
+      { catElementAll: document.querySelectorAll(".line4"), heartElement: document.querySelector(".line4-heart") },
+      { catElementAll: document.querySelectorAll(".line5"), heartElement: document.querySelector(".line5-heart") },
     ];
 
-    elements.forEach(({ catElement, heartElement }) => {
-      let catZIndex;
-      let heartZIndex;
-      if (catElement) catZIndex = parseInt(getComputedStyle(catElement).zIndex)
-      if (heartElement) heartZIndex = parseInt(getComputedStyle(heartElement).zIndex);
+    elements.forEach(({ catElementAll, heartElement }) => {
 
-      if (Math.abs(catZIndex - heartZIndex) < 100) {
-        setCats(cats.filter((el) => el.id != catElement.id))
-        setHearts(hearts.filter((el) => el.id != heartElement.id))
-      }
-      if (heartZIndex === 0) {
-        setHearts(hearts.filter((el) => el.id != heartElement.id))
-      }
-      if (catElement && parseInt(getComputedStyle(catElement).opacity) === 0) {
-        setLifes((prev) => prev - 1);
-        setCats(cats.filter((el) => el.id != catElement.id))
-      }
+      let heartZIndex;
+      if (heartElement) heartZIndex = parseInt(getComputedStyle(heartElement).zIndex);
+      if (heartZIndex === 0) setHearts(hearts.filter((el) => el.id != heartElement.id))
+      const catElementArray = Array.from(catElementAll);
+      catElementArray.forEach((catElement) => {
+        let catZIndex;
+        if (catElement) catZIndex = parseInt(getComputedStyle(catElement).zIndex)
+
+        if (Math.abs(catZIndex - heartZIndex) < 150) {
+          const match = catElement.className.match(regex);
+          if (parseInt(match[1]) > 1) {
+            setHearts(hearts.filter((el) => el.id != heartElement.id))
+            catElement.classList.remove(`lifes${parseInt(match[1])}`)
+            catElement.classList.add(`lifes${parseInt(match[1]) - 1}`)
+            catElement.classList.add(`healing`)
+            setTimeout(() => {
+              catElement.classList.remove(`healing`)
+            }, 100);
+          } else {
+            setHearts(hearts.filter((el) => el.id != heartElement.id))
+            setCats(cats.filter((el) => el.id != catElement.id))
+
+
+            //////////////////////////////SCORE//////////////////////////////
+
+            if (catElement.className.includes('cat1')) setScore((prev) => prev + 1)
+            if (catElement.className.includes('cat2')) setScore((prev) => prev + 3)
+            if (catElement.className.includes('cat3')) setScore((prev) => prev + 10)
+            if (catElement.className.includes('cat4')) setScore((prev) => prev + 20)
+            if (catElement.className.includes('cat5')) setScore((prev) => prev + 50)
+
+            //////////////////////////////SCORE//////////////////////////////
+          }
+        }
+        if (catElement && parseInt(getComputedStyle(catElement).opacity) === 0) {
+          setLifes((prev) => prev - 1);
+          const queryFredAll = document.querySelectorAll(".fred");
+          const queryFredArray = Array.from(queryFredAll);
+          queryFredArray.forEach((FredElement) => {
+            FredElement.classList.add("healing");
+            setTimeout(() => {
+              FredElement.classList.remove("healing");
+            }, 100)
+          })
+          setCats(cats.filter((el) => el.id != catElement.id))
+        }
+      })
     });
   });
 
   useEffect(() => {
-    const randomInterval = ms > 10000 ? Math.floor(Math.random() * 2000) : Math.floor(Math.random() * 4000) + 1000
-    const timeout = setTimeout(() => {
-      const options = [1, 2];
-      const probabilities = [80, 20];
+    let randomInterval
+    let options
+    let probabilities
 
+
+    //////////////////////////////LEVELS//////////////////////////////
+
+    if (ms < 10000) {
+      randomInterval = Math.floor(Math.random() * 3000) + 1000
+      options = [1];
+      probabilities = [100];
+    } else {
+      if (10000 <= ms < 20000) {
+        randomInterval = Math.floor(Math.random() * 2500) + 500
+        options = [1, 2];
+        probabilities = [70, 30];
+      } else {
+        if (20000 <= ms < 30000) {
+          randomInterval = Math.floor(Math.random() * 2000) + 500
+          options = [1, 2, 3];
+          probabilities = [50, 30, 20];
+        } else {
+          if (30000 <= ms < 40000) {
+            randomInterval = Math.floor(Math.random() * 2000) + 250
+            options = [1, 2, 3, 4];
+            probabilities = [45, 25, 20, 10];
+          } else {
+            if (40000 <= ms < 60000) {
+              randomInterval = Math.floor(Math.random() * 1500)
+              options = [1, 2, 3, 4, 5];
+              probabilities = [35, 25, 20, 15, 5];
+            }
+            else {
+              if (ms >= 60000) {
+                randomInterval = Math.floor(Math.random() * 1000)
+                options = [1, 2, 3, 4, 5];
+                probabilities = [5, 35, 30, 20, 10];
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //////////////////////////////LEVELS//////////////////////////////
+
+    const timeout = setTimeout(() => {
       const newCat = {
         id: Date.now() + Math.floor(Math.random() * 100),
         line: Math.floor(Math.random() * 5) + 1,
@@ -76,11 +160,14 @@ const Game = () => {
     const handleKeyUp = (event) => {
       switch (event.code) {
         case "Space": {
-          const newHeart = {
-            id: Date.now(),
-            line: position
-          };
-          setHearts((prevHearts) => [...prevHearts, newHeart]);
+          if (!reloading) {
+            const newHeart = {
+              id: Date.now(),
+              line: position
+            };
+            setHearts((prevHearts) => [...prevHearts, newHeart]);
+            setHeartCounter(prev => prev + 1);
+          }
         }
           break;
         case "ArrowLeft": {
@@ -98,7 +185,27 @@ const Game = () => {
     return () => {
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [position]);
+  });
+
+  useEffect(() => {
+    if (heartCounter === 15) {
+      setReloading(true)
+      setTimeout(() => {
+        setReloading(false)
+        setHeartCounter(0)
+      }, 4000);
+    }
+  }, [heartCounter])
+
+  const renderTime = ({ remainingTime }) => {
+    return (
+      <div className="timer">
+        <div className="text">reloading</div>
+        <div className="value">{remainingTime}</div>
+      </div>
+    );
+  };
+
 
   return (
     <div
@@ -111,7 +218,25 @@ const Game = () => {
         overflow: "hidden",
       }}
     >
-      {lifes > 0 && <img className={`fred line${position}-fred`} src={Fred} />}
+      {!reloading && lifes > 0 && <div className={`ammo ammo${position}`}>{15 - heartCounter}</div>}
+      {reloading && lifes > 0 && <div className={`timer-wrapper timer-wrapper${position}`}>
+        <CountdownCircleTimer
+          isPlaying
+          duration={4}
+          size={window.innerWidth * 0.12}
+          strokeWidth={window.innerWidth * 0.008}
+          colors={["#bf1b1b", "#bf1b1b", "#59220e", "#000000"]}
+          colorsTime={[10, 6, 3, 0]}
+        >
+          {renderTime}
+        </CountdownCircleTimer>
+      </div>}
+
+      {lifes > 0 && <img style={{ opacity: position === 1 ? '40%' : '0' }} className={`fred`} src={Fred1} />}
+      {lifes > 0 && <img style={{ opacity: position === 2 ? '40%' : '0' }} className={`fred`} src={Fred2} />}
+      {lifes > 0 && <img style={{ opacity: position === 3 ? '40%' : '0' }} className={`fred`} src={Fred3} />}
+      {lifes > 0 && <img style={{ opacity: position === 4 ? '40%' : '0' }} className={`fred`} src={Fred4} />}
+      {lifes > 0 && <img style={{ opacity: position === 5 ? '40%' : '0' }} className={`fred`} src={Fred5} />}
 
       {lifes > 0 && hearts.map((heart) => (
         <img
@@ -125,7 +250,13 @@ const Game = () => {
         <img
           key={cat.id}
           id={cat.id}
-          className={`cats cat${cat.num} line${cat.line}`}
+
+          //////////////////LIFES//////////////////
+
+          className={`lifes${cat.num === 2 ? 3 : cat.num === 4 ? 3 : cat.num === 5 ? 10 : 1} cats cat${cat.num} line${cat.line}`}
+
+          //////////////////LIFES//////////////////
+
           src={allCats[cat.num - 1]}
         />
       ))}
