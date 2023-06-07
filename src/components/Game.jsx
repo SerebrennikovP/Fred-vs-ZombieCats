@@ -245,7 +245,7 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
 
           //////////////////LIFES//////////////////
 
-          className={`lifes${cat.num === 2 ? 3 : cat.num === 4 ? 3 : cat.num === 5 ? 10 : 1} cats cat${cat.num} line${cat.line}`}
+          className={`lifes${cat.num === 2 ? 3 : cat.num === 4 ? 4 : cat.num === 5 ? 10 : 1} cats cat${cat.num} line${cat.line}`}
 
           //////////////////LIFES//////////////////
 

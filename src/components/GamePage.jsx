@@ -35,13 +35,15 @@ const GamePage = () => {
   return (
     <div className="GamePage" ref={elementRef}>
       <div className="score-board-div">
-        <div className="left-box">funny quote or wtvr</div>
+        <div className="left-box">
+          
+        </div>
         <div
           className="score-div"
           style={{
             fontFamily: "FVRIOSA",
             color: "#bf1b1b",
-            fontSize: "1.5rem",
+            fontSize: "4vw",
           }}
         >
           <div>
