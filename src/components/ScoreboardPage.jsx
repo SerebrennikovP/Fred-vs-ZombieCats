@@ -37,7 +37,7 @@ const ScoreboardPage = () => {
     <div className="backgroundSquare">
       <div className="scoreEscBtn scoreBtns" onClick={()=>navigate("/")}>
         <img src="../escape-key.svg" className="deathScreenKey" alt="" />
-        to main menu
+        main menu
       </div>
       <div className="ScoreboardTabble">
         {scoresList.slice(0, 7).map((user) => (
@@ -54,7 +54,7 @@ const ScoreboardPage = () => {
         className="scoreRetryBtn scoreBtns"
         onClick={() => navigate("/game")}
       >
-        <img src="../enter-key.svg" className="deathScreenKey" alt="" /> To retry
+        <img src="../enter-key.svg" className="deathScreenKey" alt="" /> retry
       </div>
     </div>
   );

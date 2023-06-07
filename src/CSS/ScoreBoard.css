@@ -28,10 +28,10 @@
   color: #BF1B1B;
   border-radius: 12px;
   border: solid #BF1B1B 2px;
-  padding: 2rem;
+  padding: 2vw;
   margin: 0 2rem;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 2vw;
   font-family: "CustomFont";
   text-align: center;
 }
@@ -46,7 +46,7 @@
     display: flex;
     justify-content: space-between;
     font-family: "CustomFont";
-    font-size: 26px;
+    font-size: 2vw;
     color: #BF1B1B;
     width: 50vw;
     border-bottom: #BF1B1B 1px solid;

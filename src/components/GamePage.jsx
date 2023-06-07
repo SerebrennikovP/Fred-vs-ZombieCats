@@ -1,16 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import DeathScreenPage from "./DeathScreenPage";
 import Game from "./Game";
 import "../CSS/GamePage.css";
 import heart from "../images/heart-icon.png";
 import "../CSS/CustomFont.css";
+import { UserContextInstance } from "../context/UserContext";
 
 const GamePage = () => {
   const elementRef = useRef(null);
   const [lifes, setLifes] = useState(300);
   console.log("file: GamePage.jsx:11 ~ GamePage ~ lifes:", lifes);
-  const [score, setScore] = useState(0);
+  // const [score, setScore] = useState(0);
   const [hearts, sethearts] = useState([heart, heart, heart]);
+  const {score, setScore} = useContext(UserContextInstance)
 
   useEffect(() => {
     if (elementRef.current) {
@@ -66,8 +68,6 @@ const GamePage = () => {
       <Game
         lifes={lifes}
         setLifes={setLifes}
-        score={score}
-        setScore={setScore}
       ></Game>
       {lifes <= 0 && <DeathScreenPage />}
     </div>

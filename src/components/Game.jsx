@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import BG from '../images/Zombie-Cats_BG.png'
 import Cat1 from "../images/Zombie-cat-1.png"
 import Cat2 from "../images/Zombie-cat-2.png"
@@ -14,9 +14,10 @@ import Fred5 from '../images/Fred5.png'
 import "../CSS/Game.css"
 import Chance from 'chance';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import { UserContextInstance } from "../context/UserContext";
 
 
-const Game = ({ setLifes, lifes, score, setScore }) => {
+const Game = ({ setLifes, lifes, }) => {
   const [ms, setMs] = useState(0);
   const [cats, setCats] = useState([]);
   const [hearts, setHearts] = useState([]);
@@ -25,6 +26,8 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
   const [heartCounter, setHeartCounter] = useState(0)
   const [reloading, setReloading] = useState(false)
   const [maxHearts, setMaxHearts] = useState(15)
+
+  const {score, setScore } = useContext(UserContextInstance)
 
   const regex = /lifes(\d+)/;
 
