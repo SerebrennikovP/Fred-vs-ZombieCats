@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/DeathScreenCss.css";
 import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
+import { Kbd } from "@chakra-ui/layout";
 
 const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
@@ -35,19 +36,19 @@ const DeathScreenPage = () => {
       Nickname: userName,
       Scores: scores,
     });
-  }, [userName])
-  
+  }, [userName]);
+
   const submitScore = async () => {
     try {
       if (newUser.Nickname == "") {
         newUser.Nickname = "Fred";
       }
       const res = await axios.post("http://localhost:8080/newscore", newUser);
-      console.log(res.data)
+      console.log(res.data);
       setNewUser({
         Nickname: userName,
         Scores: scores,
-        userId: res.data.userId[0]
+        userId: res.data.userId[0],
       });
       navigate("/Scoreboard");
     } catch (err) {
@@ -60,7 +61,7 @@ const DeathScreenPage = () => {
       {renderDeathBackground && (
         <>
           <div className="death-background">
-            <p>
+            <p className="youDied">
               You Died
               <p className="scoreCount">Your score: </p>
               <div className="NicknameDiv">
@@ -80,15 +81,21 @@ const DeathScreenPage = () => {
             </p>
             <div className="deathLeaderBtnsDiv">
               <div className="deathLeaderBtn deathBtns" onClick={submitScore}>
-                <img src="../space-key.svg" className="deathScreenKey" alt="" />
-                Press space to save score
+                <div className="space-icon-death">
+                  <Kbd className="kbd spaceKbd">
+                    <span className="spaceDeath">{"space"}</span>
+                  </Kbd>
+                </div>
+                <div className="deathBtnText">save score</div>
               </div>
               <div
                 className="deathRetryBtn deathBtns"
                 onClick={() => navigate("/game")}
               >
                 <img src="../enter-key.svg" className="deathScreenKey" alt="" />{" "}
-                Press enter to try one more time
+                <div className="deathBtnText">
+                  rety
+                </div>
               </div>
             </div>
           </div>
