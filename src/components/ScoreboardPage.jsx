@@ -35,7 +35,7 @@ const ScoreboardPage = () => {
 
   return (
     <div className="backgroundSquare">
-      <div className="scoreEscBtn scoreBtns deathBtns" onClick={()=>navigate("/")}>
+      <div className="scoreEscBtn scoreBtns" onClick={()=>navigate("/")}>
         <img src="../escape-key.svg" className="deathScreenKey" alt="" />
         to main menu
       </div>
