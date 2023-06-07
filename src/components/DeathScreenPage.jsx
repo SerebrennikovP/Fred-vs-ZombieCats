@@ -9,12 +9,9 @@ const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
   const [userName, setUserName] = useState("");
-  const { newUser, setNewUser } = useContext(UserContextInstance);
+  const { newUser, setNewUser,score, setScore} = useContext(UserContextInstance);
 
   const navigate = useNavigate();
-
-  //PLACEHOLDER SCORES//
-  const scores = 1679;
 
   useEffect(() => {
     const expandDelay = setTimeout(() => {
@@ -34,7 +31,7 @@ const DeathScreenPage = () => {
   useEffect(() => {
     setNewUser({
       Nickname: userName,
-      Scores: scores,
+      Scores: score,
     });
   }, [userName]);
 
@@ -43,11 +40,11 @@ const DeathScreenPage = () => {
       if (newUser.Nickname == "") {
         newUser.Nickname = "Fred";
       }
-      const res = await axios.post("http://localhost:8080/newscore", newUser);
+      const res = await axios.post("https://fred-vs-zombie-cats-server-n0ixkhh54-bumbox.vercel.app/newscore", newUser);
       console.log(res.data);
       setNewUser({
         Nickname: userName,
-        Scores: scores,
+        Scores: score,
         userId: res.data.userId[0],
       });
       navigate("/Scoreboard");
@@ -63,24 +60,25 @@ const DeathScreenPage = () => {
           <div className="death-background">
             <p className="youDied">
               You Died
-              <p className="scoreCount">Your score: </p>
+              <p className="scoreCount">Your score: {score}</p>
               <div className="NicknameDiv">
                 <p className="scoreCount">
                   Nickname:{" "}
                   <input
                     className="nicknameInput"
-                    placeholder="Your Nickname"
+                    placeholder="Enter Nickname"
                     value={userName}
                     onChange={(e) => {
                       setUserName(e.target.value);
                     }}
+                    maxLength={16}
                     autoFocus
                   ></input>{" "}
                 </p>
               </div>
             </p>
             <div className="deathLeaderBtnsDiv">
-              <div className="deathLeaderBtn deathBtns" onClick={submitScore}>
+              <div className="deathLeaderBtn deathBtns" onClick={()=>{submitScore(); setScore(0)}}>
                 <div className="space-icon-death">
                   <Kbd className="kbd spaceKbd">
                     <span className="spaceDeath">{"space"}</span>
@@ -90,7 +88,7 @@ const DeathScreenPage = () => {
               </div>
               <div
                 className="deathRetryBtn deathBtns"
-                onClick={() => navigate("/game")}
+                onClick={() => {navigate("/game"); setScore(0)}}
               >
                 <img src="../enter-key.svg" className="deathScreenKey" alt="" />{" "}
                 <div className="deathBtnText">

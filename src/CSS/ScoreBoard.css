@@ -51,6 +51,11 @@
     width: 50vw;
     border-bottom: #BF1B1B 1px solid;
   }
+  .currentUser{
+    background-color: #BF1B1B;
+    color: black;
+    border-radius: 12px;
+  }
   .userText {
     margin: 1rem;
   }
