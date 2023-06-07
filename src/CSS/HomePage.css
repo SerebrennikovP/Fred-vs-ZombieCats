@@ -15,15 +15,14 @@
 .logo-banner {
   display: flex;
   justify-content: center;
-  flex-grow: 0.1;
 }
 
 .story-of-game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 5%;
-  flex-grow: 0.3;
+  margin: 0 15vw;
+  margin-top: -3vh;
   animation-name: glitch-anim-text;
   animation-duration: 5s;
   animation-timing-function: linear;
@@ -33,7 +32,7 @@
 .story {
   display: flex;
   color: #bf1b1b;
-  font-size: 2rem;
+  font-size: 2vw;
 }
 .story-text {
   display: flex;
@@ -42,35 +41,38 @@
   font-size: 1.6vw;
   color: #fffffb;
   padding-top: 1vw;
+  margin-bottom: 2.5vw;
 }
 .send-healing-hearts {
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1.3vw;
 }
 
 .instruction-div {
+  padding: 0.5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 0.2;
-  margin: 0 30%;
-  margin-bottom: 2%;
-  border: 4mm ridge rgba(32, 54, 34, 0.5);
+  margin: 0vw 30vw;
+  margin-bottom: 1vh;
+  border: 1vw ridge rgba(32, 54, 34, 0.5);
   background-color: rgba(120, 177, 115, 0.4);
 }
-
+.how-to-play {
+  font-size: 1.8vw;
+}
 .play-button-div {
   display: flex;
   justify-content: center;
-
-  flex-grow: 0.2;
+  margin-top: 2vh;
 }
 .play-button {
   display: flex;
-  padding: 0.5rem 3rem;
+  padding: 1vw 3vw;
+  background-color: black;
   color: #bf1b1b;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 0.3vw;
   letter-spacing: 4px;
   overflow: hidden;
   cursor: pointer;
@@ -94,7 +96,7 @@
   margin-top: 1%;
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .instruction-1 {
@@ -104,27 +106,34 @@
 .move-fred {
   text-align: center;
   white-space: nowrap;
-  font-size: 0.8em;
+  font-size: 1.3vw;
 }
 .right-left-icons {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 3vh;
+  font-size: 1.5vw;
 }
 .instruction-2 {
   display: flex;
   flex-direction: column;
 }
 .kbd {
-  border: 1px solid black;
+  border: 5vh solid black;
+}
+.css-ck02nu {
+  border-radius: 0.7vh !important;
+  border-bottom-width: 1vw !important;
+  border-width: 0.11vw !important;
 }
 .space {
-  padding: 0rem 2rem 0rem 2rem;
+  padding: 0vw 3vw 0vw 3vw;
 }
 .space-icon {
   display: flex;
   justify-content: center;
-  margin-top: 7%;
+  margin-top: 3vh;
+  font-size: 1.5vw;
 }
 
 @keyframes glitch-anim-text {
