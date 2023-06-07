@@ -41,7 +41,7 @@
   .ScoreboardTabble {
     display: flex;
     flex-direction: column;
-    border: 0.2vw solid #59220e;
+    border: 0.2vw solid #BF1B1B;
     border-radius: 1.3vw;
   }
 
@@ -52,7 +52,7 @@
     font-size: 2vw;
     color: #BF1B1B;
     width: 50vw;
-    border-bottom: #BF1B1B 0.1vw solid;
+    border-bottom: #59220e 0.1vw solid;
   }
   .currentUser{
     background-color: #BF1B1B;
@@ -61,7 +61,7 @@
   }
   .userText {
     font-size: 2vw;
-    margin: 1.5vw;
+    margin: 1.0vw;
   }
   .userPlace {
     display: flex;
