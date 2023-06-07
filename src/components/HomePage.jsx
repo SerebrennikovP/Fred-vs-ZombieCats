@@ -1,4 +1,4 @@
-import React, { useRef, useEffect,useContext } from "react";
+import React, { useEffect,useContext } from "react";
 import { Kbd } from "@chakra-ui/layout";
 import { useNavigate } from "react-router-dom";
 import "../CSS/CustomFont.css";
@@ -8,18 +8,9 @@ import { MusicContextInstance } from "../context/MusicContext";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const elementRef = useRef(null);
 
   const {  } = useContext(MusicContextInstance);
 
-
-  useEffect(() => {
-    if (elementRef.current) {
-      elementRef.current.requestFullscreen().catch((error) => {
-      });
-    }
-
-  }, []);
 
   useEffect(() => {
     const handleKeyUp = (event) => {
@@ -33,7 +24,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="home-page" ref={elementRef}>
+    <div className="home-page" >
       <audio></audio>
       <div className="background-image">
         <div className="logo-banner">
