@@ -38,50 +38,76 @@
   opacity: 1;
 }
 .death-background:first-child {
-  color: #BF1B1B;
+  color: #bf1b1b;
   font-family: "CustomFont";
   letter-spacing: 5px;
-  font-size: 8em;
+  font-size: 10vw;
   font-weight: 400;
   animation: text-zoom 5s linear;
 }
 .scoreCount {
   margin: 0;
   margin-top: 2rem;
-  font-size: 30px;
+  font-size: 2.5vw;
 }
-.nicknameInput{
-background: transparent;
-border-radius: 12px;
-border: none;
-width: 19rem;
-}
-
-.nicknameInput:focus{
-  outline: none !important; 
+.nicknameInput {
+  background: transparent;
+  border-radius: 12px;
+  border: none;
+  width: 19rem;
 }
 
+.nicknameInput:focus {
+  outline: none !important;
+}
 
 .deathLeaderBtnsDiv {
   display: flex;
   flex-direction: row;
   margin-top: 6rem;
+  justify-content: space-around;
+  width: 80vw;
 }
+
 .deathBtns {
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #BF1B1B;
+  width: 40%;
+  height: 18vw;
+  /* max-height: 18vw; */
+  color: #bf1b1b;
   border-radius: 12px;
-  border: solid #BF1B1B 2px;
-  padding: 2rem;
+  border: solid #bf1b1b 2px;
+  padding: 2vw;
   margin: 0 2rem;
   cursor: pointer;
   font-size: 2rem;
 }
 .deathScreenKey {
-  height: 7rem;
-  margin-bottom: 2rem;
+  /* height: 7rem; */
+  height: 8vw;
+}
+.space-icon-death {
+  padding-top: 1.5vw;
+  display: flex;
+  justify-content: center;
+}
+.spaceDeath {
+  font-size: 2vw;
+  padding: 0rem 2vw 0rem 2vw;
+}
+.spaceKbd {
+  display: flex;
+  align-items: center;
+  height: 5vw;
+  background: none !important;
+  border: 3px solid #bf1b1b !important ;
+}
+.deathBtnText {
+  margin-top: auto;
+  font-size: 2vw;
+  margin-bottom: 1vw;
 }
 
 @keyframes text-zoom {
