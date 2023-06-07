@@ -28,6 +28,25 @@ const DeathScreenPage = () => {
     };
   }, []);
 
+
+  useEffect(() => {
+    const handleKeyUp = (event) => {
+      if (event.keyCode === 13) {
+        setScore(0)
+        window.location.reload();
+      } else if (event.keyCode === 32) {
+        submitScore(); 
+        setScore(0)
+      }
+    };
+
+    document.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      document.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
   useEffect(() => {
     setNewUser({
       Nickname: userName,

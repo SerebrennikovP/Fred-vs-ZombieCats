@@ -26,10 +26,10 @@
   align-items: center;
   flex-direction: column;
   color: #BF1B1B;
-  border-radius: 12px;
-  border: solid #BF1B1B 2px;
+  border-radius: 1.3vw;
+  border: solid #BF1B1B 0.2vw;
   padding: 2vw;
-  margin: 0 2rem;
+  margin: 0 4vw;
   cursor: pointer;
   font-size: 2vw;
   font-family: "CustomFont";
@@ -38,8 +38,8 @@
   .ScoreboardTabble {
     display: flex;
     flex-direction: column;
-    border: 2px solid #59220e;
-    border-radius: 12px;
+    border: 0.2vw solid #59220e;
+    border-radius: 1.3vw;
   }
 
   .ScoreboardTabbleUser {
@@ -49,15 +49,16 @@
     font-size: 2vw;
     color: #BF1B1B;
     width: 50vw;
-    border-bottom: #BF1B1B 1px solid;
+    border-bottom: #BF1B1B 0.1vw solid;
   }
   .currentUser{
     background-color: #BF1B1B;
     color: black;
-    border-radius: 12px;
+    border-radius: 1.3vw;
   }
   .userText {
-    margin: 1rem;
+    font-size: 2vw;
+    margin: 1.5vw;
   }
   .userPlace {
     display: flex;

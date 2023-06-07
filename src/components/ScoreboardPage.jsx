@@ -27,7 +27,9 @@ const ScoreboardPage = () => {
 
   const getScore = async () => {
     try {
-      const res = await axios.get("https://fred-vs-zombie-cats-server-n0ixkhh54-bumbox.vercel.app/scoreboard");
+      const res = await axios.get(
+        "https://fred-vs-zombie-cats-server-n0ixkhh54-bumbox.vercel.app/scoreboard"
+      );
       // console.log(newUser.userId)
       const rawScoresList = res.data;
       setScoresList(rawScoresList);
@@ -47,6 +49,24 @@ const ScoreboardPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleKeyUp = (event) => {
+      if (event.keyCode === 13) {
+        navigate("/game")
+        console.log('Enter key pressed');
+      } else if (event.keyCode === 27) {
+        navigate("/")
+        console.log('Escape key pressed');
+      }
+    };
+
+    document.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      document.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
+
   return (
     <div className="backgroundSquare">
       <div className="scoreEscBtn scoreBtns" onClick={() => navigate("/")}>
@@ -54,17 +74,19 @@ const ScoreboardPage = () => {
         main menu
       </div>
       <div className="ScoreboardTabble">
-        {currentUser.place && <div className="currentUserScore">
-          <div className="ScoreboardTabbleUser currentUser">
-            <div className="userPlace">
-              <div className="userText userPlace">{currentUser.place}.</div>
-              <div className="userNickname userText">
-                {currentUser.Nickname}
-              </div>{" "}
+        {currentUser.place && (
+          <div className="currentUserScore">
+            <div className="ScoreboardTabbleUser currentUser">
+              <div className="userPlace">
+                <div className="userText userPlace">{currentUser.place}.</div>
+                <div className="userNickname userText">
+                  {currentUser.Nickname}
+                </div>{" "}
+              </div>
+              <div className="userScore userText"> {currentUser.Scores}</div>
             </div>
-            <div className="userScore userText"> {currentUser.Scores}</div>
           </div>
-        </div>}
+        )}
         {scoresList.slice(0, 7).map((user) => (
           <div className="ScoreboardTabbleUser">
             <div className="userPlace">
