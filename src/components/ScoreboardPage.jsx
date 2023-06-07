@@ -68,7 +68,8 @@ const ScoreboardPage = () => {
   }, []);
 
   return (
-    <div className="backgroundSquare">
+      <div className="background-image-Score">
+    <div className="backgroundSquareScore">
       <div className="scoreEscBtn scoreBtns" onClick={() => navigate("/")}>
         <img src="../escape-key.svg" className="deathScreenKey" alt="" />
         main menu
@@ -103,6 +104,7 @@ const ScoreboardPage = () => {
       >
         <img src="../enter-key.svg" className="deathScreenKey" alt="" /> retry
       </div>
+    </div>
     </div>
   );
 };
