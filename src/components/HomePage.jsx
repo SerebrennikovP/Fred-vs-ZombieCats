@@ -12,7 +12,11 @@ const HomePage = () => {
     <div className="home-page">
       <div className="background-image">
         <div className="logo-banner">
-          <img src={logo} alt="logo" />
+          <img
+            style={{ width: "100vw", height: "40vh" }}
+            src={logo}
+            alt="logo"
+          />
         </div>
 
         <div className="story-of-game">
@@ -46,20 +50,14 @@ const HomePage = () => {
             color: "black",
           }}
         >
-          <div className="how-to-play">
-            <u>How to play</u>
-          </div>
+          <div className="how-to-play">How to play</div>
           <div className="instructions">
             <div className="instruction-1">
               <div className="move-fred">Move Fred</div>
               <div className="right-left-icons">
-                <Kbd className="kbd" mx={2}>
-                  {"⬅"}
-                </Kbd>
+                <Kbd className="kbd">{"⬅"}</Kbd>
                 {/* <b mx={2}>+</b> */}
-                <Kbd className="kbd" mx={2}>
-                  {"➡"}
-                </Kbd>
+                <Kbd className="kbd">{"➡"}</Kbd>
               </div>
             </div>
 
@@ -78,7 +76,7 @@ const HomePage = () => {
             className="play-button"
             style={{
               fontFamily: "FVRIOSA",
-              fontSize: "1rem",
+              fontSize: "1vw",
             }}
           >
             <button onClick={() => navigate("/game")}>Play!</button>
