@@ -24,6 +24,8 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
   const [allCats, setAllCats] = useState([Cat1, Cat2, Cat3, Cat4, Cat5])
   const [heartCounter, setHeartCounter] = useState(0)
   const [reloading, setReloading] = useState(false)
+  const [maxHearts, setMaxHearts] = useState(15)
+
   const regex = /lifes(\d+)/;
 
   const chance = new Chance();
@@ -102,42 +104,32 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
 
 
     //////////////////////////////LEVELS//////////////////////////////
-
     if (ms < 10000) {
-      randomInterval = Math.floor(Math.random() * 3000) + 1000
+      randomInterval = Math.floor(Math.random() * 3000) + 1000;
       options = [1];
       probabilities = [100];
+    } else if (ms < 20000) {
+      randomInterval = Math.floor(Math.random() * 2500) + 500;
+      options = [1, 2];
+      probabilities = [70, 30];
+    } else if (ms < 30000) {
+      randomInterval = Math.floor(Math.random() * 2000) + 500;
+      options = [1, 2, 3];
+      probabilities = [50, 30, 20];
+    } else if (ms < 40000) {
+      randomInterval = Math.floor(Math.random() * 2000) + 250;
+      options = [1, 2, 3, 4];
+      setMaxHearts(30)
+      probabilities = [45, 25, 20, 10];
+    } else if (ms < 60000) {
+      randomInterval = Math.floor(Math.random() * 1500);
+      options = [1, 2, 3, 4, 5];
+      probabilities = [35, 25, 20, 15, 5];
     } else {
-      if (10000 <= ms < 20000) {
-        randomInterval = Math.floor(Math.random() * 2500) + 500
-        options = [1, 2];
-        probabilities = [70, 30];
-      } else {
-        if (20000 <= ms < 30000) {
-          randomInterval = Math.floor(Math.random() * 2000) + 500
-          options = [1, 2, 3];
-          probabilities = [50, 30, 20];
-        } else {
-          if (30000 <= ms < 40000) {
-            randomInterval = Math.floor(Math.random() * 2000) + 250
-            options = [1, 2, 3, 4];
-            probabilities = [45, 25, 20, 10];
-          } else {
-            if (40000 <= ms < 60000) {
-              randomInterval = Math.floor(Math.random() * 1500)
-              options = [1, 2, 3, 4, 5];
-              probabilities = [35, 25, 20, 15, 5];
-            }
-            else {
-              if (ms >= 60000) {
-                randomInterval = Math.floor(Math.random() * 1000)
-                options = [1, 2, 3, 4, 5];
-                probabilities = [5, 35, 30, 20, 10];
-              }
-            }
-          }
-        }
-      }
+      randomInterval = Math.floor(Math.random() * 1000);
+      options = [1, 2, 3, 4, 5];
+      setMaxHearts(100)
+      probabilities = [5, 35, 30, 20, 10];
     }
 
     //////////////////////////////LEVELS//////////////////////////////
@@ -188,7 +180,7 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
   });
 
   useEffect(() => {
-    if (heartCounter === 15) {
+    if (heartCounter === maxHearts) {
       setReloading(true)
       setTimeout(() => {
         setReloading(false)
@@ -218,7 +210,7 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
         overflow: "hidden",
       }}
     >
-      {!reloading && lifes > 0 && <div className={`ammo ammo${position}`}>{15 - heartCounter}</div>}
+      {!reloading && lifes > 0 && <div className={`ammo ammo${position}`}>{maxHearts - heartCounter}</div>}
       {reloading && lifes > 0 && <div className={`timer-wrapper timer-wrapper${position}`}>
         <CountdownCircleTimer
           isPlaying
