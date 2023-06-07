@@ -107,6 +107,7 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
 
 
     //////////////////////////////LEVELS//////////////////////////////
+    
     if (ms < 10000) {
       randomInterval = Math.floor(Math.random() * 3000) + 1000;
       options = [1];
@@ -115,29 +116,29 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
       randomInterval = Math.floor(Math.random() * 2500) + 500;
       options = [1, 2];
       probabilities = [70, 30];
-      setLevel(prev => prev + 1)
+      setLevel(2)
     } else if (ms < 30000) {
       randomInterval = Math.floor(Math.random() * 2000) + 500;
       options = [1, 2, 3];
       probabilities = [50, 30, 20];
-      setLevel(prev => prev + 1)
+      setLevel(3)
     } else if (ms < 40000) {
       randomInterval = Math.floor(Math.random() * 2000) + 250;
       options = [1, 2, 3, 4];
       setMaxHearts(30)
       probabilities = [45, 25, 20, 10];
-      setLevel(prev => prev + 1)
+      setLevel(4)
     } else if (ms < 60000) {
       randomInterval = Math.floor(Math.random() * 1500);
       options = [1, 2, 3, 4, 5];
       probabilities = [35, 25, 20, 15, 5];
-      setLevel(prev => prev + 1)
+      setLevel(5)
     } else {
       randomInterval = Math.floor(Math.random() * 1000);
       options = [1, 2, 3, 4, 5];
       setMaxHearts(100)
       probabilities = [5, 35, 30, 20, 10];
-      setLevel(prev => prev + 1)
+      setLevel(6)
     }
 
     //////////////////////////////LEVELS//////////////////////////////

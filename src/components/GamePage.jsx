@@ -13,12 +13,10 @@ import { UserContextInstance } from "../context/UserContext";
 
 const GamePage = () => {
   const elementRef = useRef(null);
-  const [lifes, setLifes] = useState(300);
+  const [lifes, setLifes] = useState(3);
   console.log("file: GamePage.jsx:11 ~ GamePage ~ lifes:", lifes);
-  // const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1)
-  const [hearts, sethearts] = useState([heart, heart, heart]);
-  const {score, setScore} = useContext(UserContextInstance)
+  const { score, setScore } = useContext(UserContextInstance)
 
   useEffect(() => {
     if (elementRef.current) {
@@ -29,16 +27,9 @@ const GamePage = () => {
   }, []);
 
   useEffect(() => {
-    if (lifes === 0) {
-      console.log(score);
-    }
-    if (lifes === 200 || lifes === 100) {
-      const updatedLifes = [...hearts];
-      updatedLifes.splice(0, 1);
-      sethearts(updatedLifes);
-      return;
-    }
-  }, [lifes]);
+    if (score > 0 && score % 100 === 0) setLifes(prev => prev + 1)
+  }, [score])
+
 
   return (
     <div className="GamePage" ref={elementRef}>
@@ -51,30 +42,14 @@ const GamePage = () => {
           {<img style={{ opacity: level >= 5 ? '100%' : '0' }} className={`rules-cat`} src={Rules5} />}
         </div>
         <div
-          className="score-div"
-          style={{
-            fontFamily: "FVRIOSA",
-            color: "#bf1b1b",
-            fontSize: "4vw",
-          }}
-        >
+          className="score-div">
           <div>
-            <b>Score:</b>
+            <b>Score:{score}</b>
           </div>
-          <div>{score}</div>
         </div>
-        <div className="hearts">
-          {hearts.map((heart, idx) => {
-            return (
-              <img
-                key={idx}
-                src={heart}
-                alt="heart-image"
-                height={"100%"}
-                width={"100%"}
-              />
-            );
-          })}
+        <div className="heart-wrapper">
+          <img src={lifes > 0 && heart} />
+          <div>{lifes > 0 && lifes}</div>
         </div>
       </div>
       <Game
