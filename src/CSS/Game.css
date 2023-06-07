@@ -87,6 +87,7 @@
   animation-name: line1-heart;
   animation-duration: 5s;
   z-index: 10500;
+  animation-fill-mode: forwards;
 }
 
 @keyframes line1-heart {
@@ -116,6 +117,7 @@
   animation-name: pretty-line-left;
   animation-duration: 2s;
   animation-fill-mode: forwards;
+  filter: invert(0)!important
 }
 
 @keyframes pretty-line-left {
@@ -172,6 +174,7 @@
   animation-name: line2-heart;
   animation-duration: 5s;
   z-index: 10500;
+  animation-fill-mode: forwards;
 }
 
 @keyframes line2-heart {
@@ -201,6 +204,7 @@
   animation-name: pretty-line-left;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
+  filter: invert(0)!important
 }
 
 /* LINE 3 */
@@ -250,6 +254,7 @@
   animation-name: line3-heart;
   animation-duration: 5s;
   z-index: 10500;
+  animation-fill-mode: forwards;
 }
 
 @keyframes line3-heart {
@@ -279,6 +284,7 @@
   animation-name: pretty-line-left;
   animation-duration: 2s;
   animation-fill-mode: forwards;
+  filter: invert(0)!important
 }
 
 /* LINE 4 */
@@ -328,6 +334,7 @@
   animation-name: line4-heart;
   animation-duration: 5s;
   z-index: 10500;
+  animation-fill-mode: forwards;
 }
 
 @keyframes line4-heart {
@@ -357,6 +364,7 @@
   animation-name: pretty-line-right;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;
+  filter: invert(0)!important
 }
 
 @keyframes pretty-line-right {
@@ -413,6 +421,7 @@
   animation-name: line5-heart;
   animation-duration: 3s;
   z-index: 10500;
+  animation-fill-mode: forwards;
 }
 
 @keyframes line5-heart {
@@ -442,6 +451,7 @@
   animation-name: pretty-line-right;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  filter: invert(0)!important
 }
 
 .timer-wrapper {

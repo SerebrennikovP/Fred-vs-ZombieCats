@@ -1,19 +1,44 @@
-import React from "react";
+import React, { useRef, useEffect,useContext } from "react";
 import { Kbd } from "@chakra-ui/layout";
 import { useNavigate } from "react-router-dom";
 import "../CSS/CustomFont.css";
 import "../CSS/HomePage.css";
 import logo from "../images/Logo.png";
+import { MusicContextInstance } from "../context/MusicContext";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const elementRef = useRef(null);
+
+  const {  } = useContext(MusicContextInstance);
+
+
+  useEffect(() => {
+    if (elementRef.current) {
+      elementRef.current.requestFullscreen().catch((error) => {
+      });
+    }
+
+  }, []);
+
+  useEffect(() => {
+    const handleKeyUp = (event) => {
+      if (event.keyCode === 13)
+        navigate("/game")
+    };
+    document.addEventListener('keyup', handleKeyUp);
+    return () => {
+      document.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
 
   return (
-    <div className="home-page">
+    <div className="home-page" ref={elementRef}>
+      <audio></audio>
       <div className="background-image">
         <div className="logo-banner">
           <img
-            style={{ width: "100vw", height: "40vh" }}
+            style={{ width: "80vw" }}
             src={logo}
             alt="logo"
           />

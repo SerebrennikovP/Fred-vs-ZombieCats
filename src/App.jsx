@@ -1,4 +1,5 @@
 import "./CSS/App.css";
+import React, { useRef, useEffect } from "react";
 import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
 import { Routes, Route } from "react-router-dom";
@@ -9,6 +10,14 @@ import UserContextInstance from "./context/UserContext";
 import MusicContextInstance from "./context/MusicContext";
 
 function App() {
+  const elementRef = useRef(null);
+  useEffect(() => {
+    if (elementRef.current) {
+      elementRef.current.requestFullscreen().catch((error) => {
+      });
+    }
+  }, []);
+
   return (
     <div className="App">
       <UserContextInstance>

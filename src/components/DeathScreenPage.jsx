@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/DeathScreenCss.css";
 import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
-import { Kbd } from "@chakra-ui/layout";
 
 const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
   const [userName, setUserName] = useState("");
-  const { newUser, setNewUser,score, setScore} = useContext(UserContextInstance);
+  const { newUser, setNewUser, score, setScore } = useContext(UserContextInstance);
 
   const navigate = useNavigate();
 
@@ -31,12 +30,11 @@ const DeathScreenPage = () => {
 
   useEffect(() => {
     const handleKeyUp = (event) => {
-      if (event.keyCode === 13) {
-        setScore(0)
+      if (event.keyCode === 27) {
         window.location.reload();
-      } else if (event.keyCode === 32) {
-        submitScore(); 
-        setScore(0)
+      } 
+      if (event.keyCode === 13) {
+        submitScore();
       }
     };
 
@@ -45,7 +43,7 @@ const DeathScreenPage = () => {
     return () => {
       document.removeEventListener('keyup', handleKeyUp);
     };
-  }, []);
+  });
 
   useEffect(() => {
     setNewUser({
@@ -60,7 +58,6 @@ const DeathScreenPage = () => {
         newUser.Nickname = "Fred";
       }
       const res = await axios.post("https://fred-vs-zombie-cats-server-n0ixkhh54-bumbox.vercel.app/newscore", newUser);
-      // console.log(res.data);
       setNewUser({
         Nickname: userName,
         Scores: score,
@@ -97,21 +94,17 @@ const DeathScreenPage = () => {
               </div>
             </p>
             <div className="deathLeaderBtnsDiv">
-              <div className="deathLeaderBtn deathBtns" onClick={()=>{submitScore(); setScore(0)}}>
-                <div className="space-icon-death">
-                  <Kbd className="kbd spaceKbd">
-                    <span className="spaceDeath">{"space"}</span>
-                  </Kbd>
-                </div>
-                <div className="deathBtnText">save score</div>
+              <div className="deathBtns" onClick={() => { window.location.reload() }}>
+                <img src="../escape-key.svg" className="deathScreenKey" alt="" />{" "}
+                <div className="deathBtnText">retry</div>
               </div>
               <div
-                className="deathRetryBtn deathBtns"
-                onClick={() => {navigate("/game"); setScore(0)}}
+                className="deathBtns"
+                onClick={() => { submitScore() }}
               >
                 <img src="../enter-key.svg" className="deathScreenKey" alt="" />{" "}
                 <div className="deathBtnText">
-                  rety
+                  save score
                 </div>
               </div>
             </div>

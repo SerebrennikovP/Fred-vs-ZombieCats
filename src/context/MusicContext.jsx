@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createContext } from "react";
-import AudioPlayer from "react-audio-player";
-import BackgroundMusic from "../Assets/Audio/Background-Music.mp3";
-console.log("file: MusicContext.jsx:4 ~ BackgroundMusic:", BackgroundMusic);
+import BackgroundMusic from "../Assets/Audio/Background.mp3";
 
 const MusicContextInstance = createContext([]);
 const MusicContext = ({ children }) => {
+  // useEffect(() => {
+  //   let background = new Audio(BackgroundMusic);
+
+  //     background.play()
+  //   return () => {
+  //     background.pause();
+  //   };
+  // }, [])
   return (
-    <MusicContextInstance.Provider value={{}}>
+    <MusicContextInstance.Provider value={{ BackgroundMusic }}>
       {children}
     </MusicContextInstance.Provider>
   );

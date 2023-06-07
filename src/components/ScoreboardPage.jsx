@@ -1,15 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../CSS/ScoreBoard.css";
 import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
-import { async } from "q";
 
 const ScoreboardPage = () => {
   const [scoresList, setScoresList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+  const elementRef = useRef(null);
 
-  const { newUser, setNewUser } = useContext(UserContextInstance);
+  useEffect(() => {
+    if (elementRef.current) {
+      elementRef.current.requestFullscreen().catch((error) => {
+      });
+    }
+  }, []);
+
+  const { newUser, setNewUser, setScore } = useContext(UserContextInstance);
 
   const navigate = useNavigate();
 
@@ -19,10 +26,8 @@ const ScoreboardPage = () => {
         "https://fred-vs-zombie-cats-server-n0ixkhh54-bumbox.vercel.app/user",
         newUser
       );
-
-      // console.log(resCurrent.data[0])
       setCurrentUser(resCurrent.data[0]);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   const getScore = async () => {
@@ -30,7 +35,6 @@ const ScoreboardPage = () => {
       const res = await axios.get(
         "https://fred-vs-zombie-cats-server-n0ixkhh54-bumbox.vercel.app/scoreboard"
       );
-      // console.log(newUser.userId)
       const rawScoresList = res.data;
       setScoresList(rawScoresList);
       getCurrentUser();
@@ -53,10 +57,10 @@ const ScoreboardPage = () => {
     const handleKeyUp = (event) => {
       if (event.keyCode === 13) {
         navigate("/game")
-        console.log('Enter key pressed');
+        setScore(0)
       } else if (event.keyCode === 27) {
         navigate("/")
-        console.log('Escape key pressed');
+        setScore(0)
       }
     };
 
@@ -68,43 +72,43 @@ const ScoreboardPage = () => {
   }, []);
 
   return (
-      <div className="background-image-Score">
-    <div className="backgroundSquareScore">
-      <div className="scoreEscBtn scoreBtns" onClick={() => navigate("/")}>
-        <img src="../escape-key.svg" className="deathScreenKey" alt="" />
-        main menu
-      </div>
-      <div className="ScoreboardTabble">
-        {currentUser.place && (
-          <div className="currentUserScore">
-            <div className="ScoreboardTabbleUser currentUser">
-              <div className="userPlace">
-                <div className="userText userPlace">{currentUser.place}.</div>
-                <div className="userNickname userText">
-                  {currentUser.Nickname}
-                </div>{" "}
+    <div className="background-image-Score" ref={elementRef}>
+      {scoresList.length > 0 && <div className="backgroundSquareScore">
+        <div className="scoreEscBtn scoreBtns" onClick={() => navigate("/")}>
+          <img src="../escape-key.svg" className="deathScreenKey" alt="" />
+          menu
+        </div>
+        <div className="ScoreboardTabble">
+          {currentUser.place && (
+            <div className="currentUserScore">
+              <div className="ScoreboardTabbleUser currentUser">
+                <div className="userPlace">
+                  <div className="userText userPlace">{currentUser.place}.</div>
+                  <div className="userNickname userText">
+                    {currentUser.Nickname}
+                  </div>{" "}
+                </div>
+                <div className="userScore userText"> {currentUser.Scores}</div>
               </div>
-              <div className="userScore userText"> {currentUser.Scores}</div>
             </div>
-          </div>
-        )}
-        {scoresList.slice(0, 7).map((user) => (
-          <div className="ScoreboardTabbleUser">
-            <div className="userPlace">
-              <div className="userText userPlace">{user.place}.</div>
-              <div className="userNickname userText">{user.Nickname}</div>{" "}
+          )}
+          {scoresList.slice(0, 7).map((user) => (
+            <div className="ScoreboardTabbleUser">
+              <div className="userPlace">
+                <div className="userText userPlace">{user.place}.</div>
+                <div className="userNickname userText">{user.Nickname}</div>{" "}
+              </div>
+              <div className="userScore userText"> {user.Scores}</div>
             </div>
-            <div className="userScore userText"> {user.Scores}</div>
-          </div>
-        ))}
-      </div>
-      <div
-        className="scoreRetryBtn scoreBtns"
-        onClick={() => navigate("/game")}
-      >
-        <img src="../enter-key.svg" className="deathScreenKey" alt="" /> retry
-      </div>
-    </div>
+          ))}
+        </div>
+        <div
+          className="scoreRetryBtn scoreBtns"
+          onClick={() => navigate("/game")}
+        >
+          <img src="../enter-key.svg" className="deathScreenKey" alt="" /> retry
+        </div>
+      </div>}
     </div>
   );
 };

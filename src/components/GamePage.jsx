@@ -21,7 +21,6 @@ const GamePage = () => {
   useEffect(() => {
     if (elementRef.current) {
       elementRef.current.requestFullscreen().catch((error) => {
-        // console.error("Error attempting to enable full-screen mode:", error);
       });
     }
   }, []);

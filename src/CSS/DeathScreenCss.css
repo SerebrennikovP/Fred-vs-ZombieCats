@@ -86,16 +86,16 @@
 .deathScreenKey {
   height: 8vw;
 }
-.space-icon-death {
+.esc-icon-death {
   padding-top: 1.5vw;
   display: flex;
   justify-content: center;
 }
-.spaceDeath {
+.escDeath {
   font-size: 2vw;
   padding: 0rem 2vw 0rem 2vw;
 }
-.spaceKbd {
+.escKbd {
   display: flex;
   align-items: center;
   height: 5vw;
@@ -110,18 +110,14 @@
 
 @keyframes text-zoom {
   0% {
-    font-size: 2em;
-  }
-  25% {
-    font-size: 5em;
+    font-size: 2vw;
+    opacity: 0;
   }
   50% {
-    font-size: 7em;
-  }
-  75% {
-    font-size: 8em;
+    opacity: 1;
   }
   100% {
-    font-size: 8em;
+    opacity: 1;
+    font-size: 10vw;
   }
 }
