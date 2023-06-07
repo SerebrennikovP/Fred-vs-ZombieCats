@@ -16,7 +16,7 @@ import Chance from 'chance';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 
-const Game = ({ setLifes, lifes, score, setScore }) => {
+const Game = ({ setLifes, lifes, score, setScore, level, setLevel }) => {
   const [ms, setMs] = useState(0);
   const [cats, setCats] = useState([]);
   const [hearts, setHearts] = useState([]);
@@ -112,24 +112,29 @@ const Game = ({ setLifes, lifes, score, setScore }) => {
       randomInterval = Math.floor(Math.random() * 2500) + 500;
       options = [1, 2];
       probabilities = [70, 30];
+      setLevel(prev => prev + 1)
     } else if (ms < 30000) {
       randomInterval = Math.floor(Math.random() * 2000) + 500;
       options = [1, 2, 3];
       probabilities = [50, 30, 20];
+      setLevel(prev => prev + 1)
     } else if (ms < 40000) {
       randomInterval = Math.floor(Math.random() * 2000) + 250;
       options = [1, 2, 3, 4];
       setMaxHearts(30)
       probabilities = [45, 25, 20, 10];
+      setLevel(prev => prev + 1)
     } else if (ms < 60000) {
       randomInterval = Math.floor(Math.random() * 1500);
       options = [1, 2, 3, 4, 5];
       probabilities = [35, 25, 20, 15, 5];
+      setLevel(prev => prev + 1)
     } else {
       randomInterval = Math.floor(Math.random() * 1000);
       options = [1, 2, 3, 4, 5];
       setMaxHearts(100)
       probabilities = [5, 35, 30, 20, 10];
+      setLevel(prev => prev + 1)
     }
 
     //////////////////////////////LEVELS//////////////////////////////
