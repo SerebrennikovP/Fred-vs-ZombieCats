@@ -5,6 +5,12 @@ import Cat2 from "../images/Zombie-cat-2.png"
 import Cat3 from "../images/Zombie-cat-3.png"
 import Cat4 from "../images/Zombie-cat-4.png"
 import Cat5 from "../images/Zombie-cat-5.png"
+import PrettyCat1 from "../images/Pretty-cat-1.png"
+import PrettyCat2 from "../images/Pretty-cat-2.png"
+import PrettyCat3 from "../images/Pretty-cat-3.png"
+import PrettyCat4 from "../images/Pretty-cat-4.png"
+import PrettyCat5 from "../images/Pretty-cat-5.png"
+import PrettyCat6 from "../images/Pretty-cat-6.png"
 import Heart from '../images/heart.png'
 import Fred1 from '../images/Fred1.png'
 import Fred2 from '../images/Fred2.png'
@@ -23,13 +29,15 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
   const [hearts, setHearts] = useState([]);
   const [position, setPosition] = useState(3)
   const [allCats, setAllCats] = useState([Cat1, Cat2, Cat3, Cat4, Cat5])
+  const [allPrettyCats, setAllPrettyCats] = useState([PrettyCat1, PrettyCat2, PrettyCat3, PrettyCat4, PrettyCat5, PrettyCat6])
   const [heartCounter, setHeartCounter] = useState(0)
   const [reloading, setReloading] = useState(false)
   const [maxHearts, setMaxHearts] = useState(15)
 
-  const {score, setScore } = useContext(UserContextInstance)
+  const { score, setScore } = useContext(UserContextInstance)
 
   const regex = /lifes(\d+)/;
+  const regexLine = /line(\d+)/
 
   const chance = new Chance();
 
@@ -69,9 +77,27 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
               catElement.classList.remove(`healing`)
             }, 100);
           } else {
+
+
+            const img = document.createElement("img");
+            const src = document.getElementById("Game");
+            src.appendChild(img);
+            const sourceStyles = getComputedStyle(catElement);
+            const destinationStyles = img.style;
+            for (let styleProp of sourceStyles) {
+              destinationStyles[styleProp] = sourceStyles[styleProp];
+            }
+            img.style.removeProperty('animation')
+            img.classList.add(`pretty-cat`)
+            const match = catElement.className.match(regexLine);
+            img.classList.add(`pretty-line${parseInt(match[1])}`)
+            img.src = allPrettyCats[Math.floor(Math.random() * allPrettyCats.length)];
+
             setHearts(hearts.filter((el) => el.id != heartElement.id))
             setCats(cats.filter((el) => el.id != catElement.id))
-
+            setTimeout(() => {
+              img.remove()
+            }, 5000);
 
             //////////////////////////////SCORE//////////////////////////////
 
@@ -107,7 +133,7 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
 
 
     //////////////////////////////LEVELS//////////////////////////////
-    
+
     if (ms < 10000) {
       randomInterval = Math.floor(Math.random() * 3000) + 1000;
       options = [1];
@@ -210,6 +236,7 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
 
   return (
     <div
+      id="Game"
       className="Game"
       style={{
         backgroundImage: `url(${BG})`,

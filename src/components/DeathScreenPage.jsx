@@ -44,7 +44,7 @@ const DeathScreenPage = () => {
         newUser.Nickname = "Fred";
       }
       const res = await axios.post("http://localhost:8080/newscore", newUser);
-      console.log(res.data);
+      // console.log(res.data);
       setNewUser({
         Nickname: userName,
         Scores: scores,

@@ -14,20 +14,23 @@ import { UserContextInstance } from "../context/UserContext";
 const GamePage = () => {
   const elementRef = useRef(null);
   const [lifes, setLifes] = useState(3);
-  console.log("file: GamePage.jsx:11 ~ GamePage ~ lifes:", lifes);
   const [level, setLevel] = useState(1)
+  const [hundreds, setHundreds] = useState(0)
   const { score, setScore } = useContext(UserContextInstance)
 
   useEffect(() => {
     if (elementRef.current) {
       elementRef.current.requestFullscreen().catch((error) => {
-        console.error("Error attempting to enable full-screen mode:", error);
+        // console.error("Error attempting to enable full-screen mode:", error);
       });
     }
   }, []);
 
   useEffect(() => {
-    if (score > 0 && score % 100 === 0) setLifes(prev => prev + 1)
+    if (Math.floor(score / 100) > hundreds) {
+      setLifes(prev => prev + 1)
+      setHundreds(prev => prev + 1)
+    }
   }, [score])
 
 
@@ -48,7 +51,7 @@ const GamePage = () => {
           </div>
         </div>
         <div className="heart-wrapper">
-          <img src={lifes > 0 && heart} />
+          <img src={lifes > 0 ? heart : null} />
           <div>{lifes > 0 && lifes}</div>
         </div>
       </div>

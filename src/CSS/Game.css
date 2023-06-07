@@ -12,7 +12,7 @@
   transition: opacity 0.1s;
 }
 
-.healing{
+.healing {
   filter: invert(1);
 }
 
@@ -38,7 +38,7 @@
   animation-duration: 15s;
 }
 
-/*//////////////////////////// SPEED ////////////////////////////*/
+/*/ /////////////////////////// SPEED ////////////////////////////*/
 
 /* LINE 1 */
 
@@ -107,6 +107,21 @@
     top: 45%;
     width: 0%;
     z-index: 0;
+  }
+}
+
+.pretty-line1 {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: pretty-line-left;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pretty-line-left {
+  100% {
+    left: -15%;
+    opacity: 0%;
   }
 }
 
@@ -180,6 +195,14 @@
   }
 }
 
+.pretty-line2 {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: pretty-line-left;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+}
+
 /* LINE 3 */
 
 .line3 {
@@ -248,6 +271,14 @@
     width: 0%;
     z-index: 0;
   }
+}
+
+.pretty-line3 {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: pretty-line-left;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 /* LINE 4 */
@@ -320,6 +351,21 @@
   }
 }
 
+.pretty-line4{
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: pretty-line-right;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pretty-line-right {
+  100% {
+    left: 115%;
+    opacity: 0%;
+  }
+}
+
 /* LINE 5 */
 
 .line5 {
@@ -365,7 +411,7 @@
   position: absolute;
   animation-timing-function: ease-out;
   animation-name: line5-heart;
-  animation-duration: 5s;
+  animation-duration: 3s;
   z-index: 10500;
 }
 
@@ -390,35 +436,43 @@
   }
 }
 
+.pretty-line5 {
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-name: pretty-line-right;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
 .timer-wrapper {
   display: flex;
   justify-content: center;
-  position:absolute;
+  position: absolute;
   color: #bf1b1b;
-  z-index:30000;
+  z-index: 30000;
   border-radius: 50%;
   background-color: #ffffff65;
 }
 
 .timer-wrapper1 {
-  left:-2%;
-  top:59%;
+  left: -2%;
+  top: 59%;
 }
 .timer-wrapper2 {
-  left:17.5%;
-  top:65%;
+  left: 17.5%;
+  top: 65%;
 }
 .timer-wrapper3 {
-  left:45%;
-  top:65%;
+  left: 45%;
+  top: 65%;
 }
 .timer-wrapper4 {
-  left:71.5%;
-  top:60%;
+  left: 71.5%;
+  top: 60%;
 }
 .timer-wrapper5 {
-  left:89.5%;
-  top:57%;
+  left: 89.5%;
+  top: 57%;
 }
 
 .timer {
@@ -434,39 +488,38 @@
 }
 
 .value {
-  margin-top:-20%;
-  margin-bottom:-10%;
+  margin-top: -20%;
+  margin-bottom: -10%;
   font-size: 5vw;
 }
 
-
 .ammo {
-  position:absolute;
-  width:10vw;
+  position: absolute;
+  width: 10vw;
   text-align: center;
   color: #fff;
   font-family: "CustomFont";
-  z-index:30000;
+  z-index: 30000;
   font-size: 2.5vw;
 }
 
 .ammo1 {
-  left:-0.5%;
-  top:64.5%;
+  left: -0.5%;
+  top: 64.5%;
 }
 .ammo2 {
-  left:18%;
-  top:70%;
+  left: 18%;
+  top: 70%;
 }
 .ammo3 {
-  left:46%;
+  left: 46%;
   top: 73.5%;
 }
 .ammo4 {
-  left:72.8%;
-  top:67.5%;
+  left: 72.8%;
+  top: 67.5%;
 }
 .ammo5 {
-  left:90.5%;
-  top:64.5%;
+  left: 90.5%;
+  top: 64.5%;
 }
