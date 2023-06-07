@@ -1,56 +1,135 @@
-@media only screen and (max-width: 600px) {
-  .game-instructions {
-    margin-top: 15%;
-  }
-  .instruction-div {
-    padding-top: 5%;
-    margin-bottom: 5%;
-  }
-  .play-button-div {
-    margin-top: 2%;
-  }
-}
-
 .home-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.background-image {
+  background-image: url("../images/darkforest.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
 }
 .logo-banner {
   display: flex;
   justify-content: center;
-  padding: 0 5% 0 0;
-  padding-top: 0%;
-  padding-bottom: 0;
+  flex-grow: 0.1;
 }
 
-.game-instructions {
+.story-of-game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5%;
-  padding-top: 0;
-  padding-bottom: 0;
+  margin: 0 5%;
+  flex-grow: 0.3;
+  animation-name: glitch-anim-text;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: calc(3s + 5s * 0.25);
 }
-.how-to-play {
+.story {
+  display: flex;
+  color: #bf1b1b;
+  font-size: 2rem;
+}
+.story-text {
   display: flex;
   justify-content: center;
-
-  margin-bottom: 5%;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fffffb;
 }
+.send-healing-hearts {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .instruction-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5%;
+    border: 4mm ridge rgba(32, 54, 34, 0.5);
+    background-color: rgba(120, 177, 115, 0.4);
+  }
+  .logo-banner {
+    display: flex;
+    justify-content: center;
+    flex-grow: 0.3;
+  }
+  .story-of-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5%;
+    flex-grow: 0.1;
+    animation-name: glitch-anim-text;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: calc(3s + 5s * 0.25);
+  }
+  .instruction-2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .instruction-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0.2;
+    margin: 0 10%;
+    margin-bottom: 2%;
+    border: 4mm ridge rgba(32, 54, 34, 0.5);
+    background-color: rgba(120, 177, 115, 0.4);
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .instruction-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0.2;
+    margin: 0 20%;
+    margin-bottom: 2%;
+    border: 4mm ridge rgba(32, 54, 34, 0.5);
+    background-color: rgba(120, 177, 115, 0.4);
+  }
+}
+@media (min-width: 1025px) {
+  .instruction-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0.2;
+    margin: 0 30%;
+    margin-bottom: 2%;
+    border: 4mm ridge rgba(32, 54, 34, 0.5);
+    background-color: rgba(120, 177, 115, 0.4);
+  }
+}
+
 .play-button-div {
   display: flex;
   justify-content: center;
-  padding: 2%;
+
+  flex-grow: 0.2;
 }
 .play-button {
   display: flex;
-  padding: 1rem 2rem;
-  background-color: #030200;
+  padding: 0.5rem 3rem;
   color: #bf1b1b;
   font-weight: bold;
-  border: none;
   border-radius: 5px;
   letter-spacing: 4px;
   overflow: hidden;
-  transition: 0.5s;
   cursor: pointer;
   text-align: center;
   animation: heart-beat 7s steps(1) infinite;
@@ -61,45 +140,50 @@
 }
 .play-button:hover {
   background: #bf1b1b;
+
   color: #050801;
-  box-shadow: 0 0 5px #bf1b1b, 0 0 25px #bf1b1b, 0 0 50px #bf1b1b,
-    0 0 100px #bf1b1b;
-  -webkit-box-reflect: below 1px linear-gradient(transparent);
+  box-shadow: 0 0 5rem #bf1b1b, 0 0 10rem #bf1b1b, 0 0 5rem #bf1b1b,
+    0 0 10rem #bf1b1b;
+  -webkit-box-reflect: below 5rem linear-gradient(transparent);
 }
-.story {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1%;
-  color: #bf1b1b;
-}
+
 .instructions {
+  margin-top: 1%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  align-items: center;
+}
+.instruction-1 {
+  display: flex;
+  flex-direction: column;
+}
+.move-fred {
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.8em;
+}
+.right-left-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+.instruction-2 {
+  display: flex;
+  flex-direction: column;
 }
 .kbd {
   border: 1px solid black;
 }
 .space {
-  padding: 0rem 3rem 0rem 3rem;
+  padding: 0rem 2rem 0rem 2rem;
 }
-.instruction-div {
-  border: 4mm ridge rgba(32, 54, 34, 0.5);
-  padding: 0rem 1rem 0rem 1rem;
+.space-icon {
   display: flex;
-  flex-direction: column;
-  background-color: rgba(120, 177, 115, 0.4);
+  justify-content: center;
+  margin-top: 7%;
 }
-.story-of-game {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  animation-name: glitch-anim-text;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-delay: calc(3s + 5s * 0.25);
-}
+
 @keyframes glitch-anim-text {
   0% {
     transform: translate3d(10px, 0, 0) scale3d(-1, -1, 1);
