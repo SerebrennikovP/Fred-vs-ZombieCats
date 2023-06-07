@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import DeathScreenPage from "./DeathScreenPage";
 import Game from "./Game";
 import "../CSS/GamePage.css";
@@ -9,14 +9,16 @@ import Rules2 from '../images/Rules-Zombie-cat-2.png'
 import Rules3 from '../images/Rules-Zombie-cat-3.png'
 import Rules4 from '../images/Rules-Zombie-cat-4.png'
 import Rules5 from '../images/Rules-Zombie-cat-5.png'
+import { UserContextInstance } from "../context/UserContext";
 
 const GamePage = () => {
   const elementRef = useRef(null);
   const [lifes, setLifes] = useState(300);
   console.log("file: GamePage.jsx:11 ~ GamePage ~ lifes:", lifes);
-  const [score, setScore] = useState(0);
+  // const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1)
   const [hearts, sethearts] = useState([heart, heart, heart]);
+  const {score, setScore} = useContext(UserContextInstance)
 
   useEffect(() => {
     if (elementRef.current) {
