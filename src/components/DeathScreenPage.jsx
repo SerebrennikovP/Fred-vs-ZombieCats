@@ -10,9 +10,11 @@ const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
   const [userName, setUserName] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const { newUser, setNewUser, score, setScore } = useContext(UserContextInstance);
   const { Dead, muted } = useContext(MusicContextInstance);
+
 
   const navigate = useNavigate();
 
@@ -73,6 +75,8 @@ const DeathScreenPage = () => {
     }
   };
 
+  
+
   return (<>
     {!muted && <ReactAudioPlayer
       src={Dead}
@@ -110,7 +114,7 @@ const DeathScreenPage = () => {
               </div>
               <div
                 className="deathBtns"
-                onClick={() => { submitScore() }}
+                onClick={() => { submitScore(); setIsButtonDisabled(true); disabled={isButtonDisabled}}}
               >
                 <img src="../enter-key.svg" className="deathScreenKey" alt="" />{" "}
                 <div className="deathBtnText">
