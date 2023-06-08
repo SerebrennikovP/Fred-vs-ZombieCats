@@ -18,12 +18,12 @@ const GamePage = () => {
   const [hundreds, setHundreds] = useState(0)
   const { score, setScore } = useContext(UserContextInstance)
 
-  useEffect(() => {
-    if (elementRef.current) {
-      elementRef.current.requestFullscreen().catch((error) => {
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (elementRef.current) {
+  //     elementRef.current.requestFullscreen().catch((error) => {
+  //     });
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (Math.floor(score / 100) > hundreds) {
@@ -34,7 +34,8 @@ const GamePage = () => {
 
 
   return (
-    <div className="GamePage" ref={elementRef}>
+    // <div className="GamePage" ref={elementRef}>
+    <div className="GamePage">
       <div className="score-board-div">
         <div className="rules-box">
           {<img className={`rules-cat`} src={Rules1} />}

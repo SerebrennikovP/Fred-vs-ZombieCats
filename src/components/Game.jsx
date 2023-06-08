@@ -70,7 +70,7 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
         let catZIndex;
         if (catElement) catZIndex = parseInt(getComputedStyle(catElement).zIndex)
 
-        if (Math.abs(catZIndex - heartZIndex) < 150) {
+        if (Math.abs(catZIndex - heartZIndex) < 200) {
           const match = catElement.className.match(regex);
           if (parseInt(match[1]) > 1) {
             setHearts(hearts.filter((el) => el.id != heartElement.id))

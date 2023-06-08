@@ -5,12 +5,14 @@ import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
 import { MusicContextInstance } from "../context/MusicContext";
 import ReactAudioPlayer from "react-audio-player";
+import LoadingPage from './Loading';
 
 const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
   const [userName, setUserName] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { newUser, setNewUser, score, setScore } =
     useContext(UserContextInstance);
@@ -42,6 +44,7 @@ const DeathScreenPage = () => {
         if (isButtonDisabled) {
           return;
         } else {
+
           setIsButtonDisabled(true);
           submitScore();
         }
@@ -64,6 +67,7 @@ const DeathScreenPage = () => {
 
   const submitScore = async () => {
     try {
+      setLoading(true)
       if (newUser.Nickname == "") {
         newUser.Nickname = "Fred";
       }
@@ -92,6 +96,7 @@ const DeathScreenPage = () => {
           muted={muted}
         />
       )}
+      {loading && <LoadingPage></LoadingPage>}
       <div className={`expanding-square ${expanding ? "expand" : ""}`}>
         {renderDeathBackground && (
           <>
@@ -135,6 +140,7 @@ const DeathScreenPage = () => {
                   onClick={() => {
                     !isButtonDisabled && submitScore();
                     setIsButtonDisabled(true);
+                    setLoading(true)
                   }}
                 >
                   <img

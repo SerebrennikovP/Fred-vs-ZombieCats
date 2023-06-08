@@ -12,12 +12,12 @@ const ScoreboardPage = () => {
   const elementRef = useRef(null);
   const { Dead, muted } = useContext(MusicContextInstance);
 
-  useEffect(() => {
-    if (elementRef.current) {
-      elementRef.current.requestFullscreen().catch((error) => {
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (elementRef.current) {
+  //     elementRef.current.requestFullscreen().catch((error) => {
+  //     });
+  //   }
+  // }, []);
 
   const { newUser, setNewUser, setScore } = useContext(UserContextInstance);
 
@@ -75,8 +75,9 @@ const ScoreboardPage = () => {
   }, []);
 
   return (
-    <div className="background-image-Score" ref={elementRef}>
-            {!muted && <ReactAudioPlayer
+    // <div className="background-image-Score" ref={elementRef}>
+    <div className="background-image-Score" >
+      {!muted && <ReactAudioPlayer
         src={Dead}
         autoPlay={true}
         loop={true}
