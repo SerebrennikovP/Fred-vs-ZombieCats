@@ -85,9 +85,9 @@ const HomePage = () => {
             <div className="instruction-1">
               <div className="move-fred">Move Fred</div>
               <div className="right-left-icons">
-                <Kbd className="kbd">{"⬅"}</Kbd>
+                <Kbd className="kbd">{"⇦"}</Kbd>
                 {/* <b mx={2}>+</b> */}
-                <Kbd className="kbd">{"➡"}</Kbd>
+                <Kbd className="kbd">{"⇨"}</Kbd>
               </div>
             </div>
 

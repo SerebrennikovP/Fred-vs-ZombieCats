@@ -19,6 +19,28 @@ const ScoreboardPage = () => {
   //   }
   // }, []);
 
+  useEffect(() => {
+    const element = document.documentElement;
+
+    if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    }
+    if (element.requestFullscreen) {
+      element.requestFullscreen().catch((error)=>{});
+    }
+     if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen().catch((error)=>{});
+    }  if (element.msRequestFullscreen) {
+      element.msRequestFullscreen().catch((error)=>{});
+    }
+
+    return () => {
+      if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+    };
+  }, []);
+
   const { newUser, setNewUser, setScore } = useContext(UserContextInstance);
 
   const navigate = useNavigate();
