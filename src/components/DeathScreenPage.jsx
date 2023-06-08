@@ -114,7 +114,8 @@ const DeathScreenPage = () => {
               </div>
               <div
                 className="deathBtns"
-                onClick={() => { submitScore(); setIsButtonDisabled(true); disabled={isButtonDisabled}}}
+                disabled={isButtonDisabled}
+                onClick={() => { submitScore(); setIsButtonDisabled(true); }}
               >
                 <img src="../enter-key.svg" className="deathScreenKey" alt="" />{" "}
                 <div className="deathBtnText">
