@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import BG from '../images/Zombie-Cats_BG.png'
+import BG from '../images/Zombie-Cats_BG.mp4'
 import Cat1 from "../images/Zombie-cat-1.png"
 import Cat2 from "../images/Zombie-cat-2.png"
 import Cat3 from "../images/Zombie-cat-3.png"
@@ -267,13 +267,16 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
       id="Game"
       className="Game"
       style={{
-        backgroundImage: `url(${BG})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
         height: "calc(100vw / (16 / 9))",
         overflow: "hidden",
       }}
     >
+      <div className="video-background">
+        <video autoPlay loop muted>
+          <source src={BG} type="video/mp4" />
+        </video></div>
       {!muted && lifes === 1 && <ReactAudioPlayer
         src={Heartbeat}
         autoPlay={true}
