@@ -5,14 +5,13 @@ import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
 import { MusicContextInstance } from "../context/MusicContext";
 import ReactAudioPlayer from "react-audio-player";
-import LoadingPage from './Loading';
 
-const DeathScreenPage = () => {
+const DeathScreenPage = ({ setLoading }) => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
   const [userName, setUserName] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [loading, setLoading] = useState(false);
+
 
   const { newUser, setNewUser, score, setScore } =
     useContext(UserContextInstance);
@@ -41,10 +40,10 @@ const DeathScreenPage = () => {
         window.location.reload();
       }
       if (event.keyCode === 13) {
+        setLoading(true)
         if (isButtonDisabled) {
           return;
         } else {
-
           setIsButtonDisabled(true);
           submitScore();
         }
@@ -67,7 +66,6 @@ const DeathScreenPage = () => {
 
   const submitScore = async () => {
     try {
-      setLoading(true)
       if (newUser.Nickname == "") {
         newUser.Nickname = "Fred";
       }
@@ -80,6 +78,7 @@ const DeathScreenPage = () => {
         Scores: score,
         userId: res.data.userId[0],
       });
+      setScore(0)
       navigate("/Scoreboard");
     } catch (err) {
       console.log(err);
@@ -96,7 +95,7 @@ const DeathScreenPage = () => {
           muted={muted}
         />
       )}
-      {loading && <LoadingPage></LoadingPage>}
+
       <div className={`expanding-square ${expanding ? "expand" : ""}`}>
         {renderDeathBackground && (
           <>
@@ -138,9 +137,9 @@ const DeathScreenPage = () => {
                   className="deathBtns"
                   disabled={isButtonDisabled}
                   onClick={() => {
-                    !isButtonDisabled && submitScore();
-                    setIsButtonDisabled(true);
+                    !isButtonDisabled && submitScore()
                     setLoading(true)
+                    setIsButtonDisabled(true);
                   }}
                 >
                   <img

@@ -9,7 +9,7 @@ import ReactAudioPlayer from 'react-audio-player';
 const ScoreboardPage = () => {
   const [scoresList, setScoresList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
-  const elementRef = useRef(null);
+  // const elementRef = useRef(null);
   const { Dead, muted } = useContext(MusicContextInstance);
 
   // useEffect(() => {

@@ -13,9 +13,9 @@ const LoadingPage = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100vh',
-            width: '100vw',
-            zIndex: '99999999999999',
+            height: '100%',
+            width: '100%',
+            zIndex: '999999999',
             backgroundColor: '#000'
         }}>
             {showEmoji && (
