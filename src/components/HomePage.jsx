@@ -1,15 +1,17 @@
-import React, { useEffect,useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Kbd } from "@chakra-ui/layout";
 import { useNavigate } from "react-router-dom";
 import "../CSS/CustomFont.css";
 import "../CSS/HomePage.css";
 import logo from "../images/Logo.png";
 import { MusicContextInstance } from "../context/MusicContext";
+import ReactAudioPlayer from 'react-audio-player';
+import MuteImg from '../images/mute.png'
 
 const HomePage = () => {
   const navigate = useNavigate();
-
-  const {  } = useContext(MusicContextInstance);
+  const [muteVisible, setMuteVisible] = useState(true)
+  const { BackgroundMusic, muted } = useContext(MusicContextInstance);
 
 
   useEffect(() => {
@@ -23,11 +25,23 @@ const HomePage = () => {
     };
   }, []);
 
-  return (
+  useEffect(() => {
+    setTimeout(() => {
+      setMuteVisible(false)
+    }, 5000);
+  }, [])
+
+  return (<>
+    {muteVisible && <div className="mute-rules"><img src={MuteImg}></img></div>}
     <div className="home-page" >
-      <audio></audio>
+      {!muted && <ReactAudioPlayer
+        src={BackgroundMusic}
+        autoPlay={true}
+        loop={true}
+        muted={muted}
+      />}
       <div className="background-image">
-        <div className="logo-banner">
+        <div className="logo-banner" >
           <img
             style={{ width: "80vw" }}
             src={logo}
@@ -99,7 +113,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
   );
 };
 

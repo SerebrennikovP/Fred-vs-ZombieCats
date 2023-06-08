@@ -21,6 +21,9 @@ import "../CSS/Game.css"
 import Chance from 'chance';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { UserContextInstance } from "../context/UserContext";
+import { MusicContextInstance } from "../context/MusicContext";
+import ReactAudioPlayer from 'react-audio-player';
+
 
 
 const Game = ({ setLifes, lifes, level, setLevel }) => {
@@ -34,6 +37,7 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
   const [reloading, setReloading] = useState(false)
   const [maxHearts, setMaxHearts] = useState(15)
 
+  const { Meow, MinusCat, MinusFred, HeartSound, muted, Heartbeat, GameMusic } = useContext(MusicContextInstance);
   const { score, setScore } = useContext(UserContextInstance)
 
   const regex = /lifes(\d+)/;
@@ -73,12 +77,25 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
             catElement.classList.remove(`lifes${parseInt(match[1])}`)
             catElement.classList.add(`lifes${parseInt(match[1]) - 1}`)
             catElement.classList.add(`healing`)
+            const audioElement = document.createElement("audio");
+            audioElement.src = MinusCat;
+            audioElement.autoplay = true;
+            audioElement.muted = muted;
+            audioElement.volume = 0.6;
             setTimeout(() => {
               catElement.classList.remove(`healing`)
             }, 100);
           } else {
-
-
+            const audioElement2 = document.createElement("audio");
+            audioElement2.src = MinusCat;
+            audioElement2.autoplay = true;
+            audioElement2.muted = muted;
+            audioElement2.volume = 0.6;
+            const audioElement = document.createElement("audio");
+            audioElement.src = Meow;
+            audioElement.autoplay = true;
+            audioElement.muted = muted;
+            audioElement.volume = 0.2;
             const img = document.createElement("img");
             const src = document.getElementById("Game");
             src.appendChild(img);
@@ -112,6 +129,12 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
         }
         if (catElement && parseInt(getComputedStyle(catElement).opacity) === 0) {
           setLifes((prev) => prev - 1);
+          if (lifes > 0) {
+            const audioElement = document.createElement("audio");
+            audioElement.src = MinusFred;
+            audioElement.autoplay = true;
+            audioElement.muted = muted
+          }
           const queryFredAll = document.querySelectorAll(".fred");
           const queryFredArray = Array.from(queryFredAll);
           queryFredArray.forEach((FredElement) => {
@@ -192,6 +215,11 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
               id: Date.now(),
               line: position
             };
+            const audioElement = document.createElement("audio");
+            audioElement.src = HeartSound;
+            audioElement.autoplay = true;
+            audioElement.muted = muted;
+            audioElement.volume = 0.3;
             setHearts((prevHearts) => [...prevHearts, newHeart]);
             setHeartCounter(prev => prev + 1);
           }
@@ -246,6 +274,21 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
         overflow: "hidden",
       }}
     >
+      {!muted && lifes === 1 && <ReactAudioPlayer
+        src={Heartbeat}
+        autoPlay={true}
+        loop={true}
+        muted={muted}
+      />}
+
+      {!muted && lifes > 0 && <ReactAudioPlayer
+        src={GameMusic}
+        autoPlay={true}
+        loop={true}
+        muted={muted}
+        volume={lifes === 1 ? 0.2 : 1}
+      />}
+
       {!reloading && lifes > 0 && <div className={`ammo ammo${position}`}>{maxHearts - heartCounter}</div>}
       {reloading && lifes > 0 && <div className={`timer-wrapper timer-wrapper${position}`}>
         <CountdownCircleTimer
@@ -267,12 +310,14 @@ const Game = ({ setLifes, lifes, level, setLevel }) => {
       {lifes > 0 && <img style={{ opacity: position === 5 ? '40%' : '0' }} className={`fred`} src={Fred5} />}
 
       {lifes > 0 && hearts.map((heart) => (
+
         <img
           key={heart.id}
           id={heart.id}
           className={`heart line${heart.line}-heart`}
           src={Heart}
         />
+
       ))}
       {cats.map((cat) => (
         <img

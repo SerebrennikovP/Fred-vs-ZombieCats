@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/DeathScreenCss.css";
 import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
+import { MusicContextInstance } from "../context/MusicContext";
+import ReactAudioPlayer from 'react-audio-player';
 
 const DeathScreenPage = () => {
   const [expanding, setExpanding] = useState(false);
   const [renderDeathBackground, setRenderDeathBackground] = useState(false);
   const [userName, setUserName] = useState("");
+
   const { newUser, setNewUser, score, setScore } = useContext(UserContextInstance);
+  const { Dead, muted } = useContext(MusicContextInstance);
 
   const navigate = useNavigate();
 
@@ -32,7 +36,7 @@ const DeathScreenPage = () => {
     const handleKeyUp = (event) => {
       if (event.keyCode === 27) {
         window.location.reload();
-      } 
+      }
       if (event.keyCode === 13) {
         submitScore();
       }
@@ -69,7 +73,13 @@ const DeathScreenPage = () => {
     }
   };
 
-  return (
+  return (<>
+    {!muted && <ReactAudioPlayer
+      src={Dead}
+      autoPlay={true}
+      loop={true}
+      muted={muted}
+    />}
     <div className={`expanding-square ${expanding ? "expand" : ""}`}>
       {renderDeathBackground && (
         <>
@@ -111,7 +121,7 @@ const DeathScreenPage = () => {
           </div>
         </>
       )}
-    </div>
+    </div></>
   );
 };
 

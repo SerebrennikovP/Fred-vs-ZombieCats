@@ -4,6 +4,36 @@
   display: flex;
   justify-content: center;
 }
+.mute-rules{
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 999999999;
+  animation-name: mute;
+  animation-duration: 6s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes mute {
+  0%{
+    opacity:100%
+  }
+  30%{
+    opacity:100%
+  }
+  83%{
+    opacity:0
+  }
+  100%{
+    opacity:0;
+    display:none
+  }
+}
+
 .background-image {
   background-image: url("../images/darkforest.gif");
   background-repeat: no-repeat;

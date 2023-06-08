@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/ScoreBoard.css";
 import axios from "axios";
 import { UserContextInstance } from "../context/UserContext";
+import { MusicContextInstance } from "../context/MusicContext";
+import ReactAudioPlayer from 'react-audio-player';
 
 const ScoreboardPage = () => {
   const [scoresList, setScoresList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const elementRef = useRef(null);
+  const { Dead, muted } = useContext(MusicContextInstance);
 
   useEffect(() => {
     if (elementRef.current) {
@@ -73,6 +76,12 @@ const ScoreboardPage = () => {
 
   return (
     <div className="background-image-Score" ref={elementRef}>
+            {!muted && <ReactAudioPlayer
+        src={Dead}
+        autoPlay={true}
+        loop={true}
+        muted={muted}
+      />}
       {scoresList.length > 0 && <div className="backgroundSquareScore">
         <div className="scoreEscBtn scoreBtns" onClick={() => navigate("/")}>
           <img src="../escape-key.svg" className="deathScreenKey" alt="" />
