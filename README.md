@@ -7,9 +7,10 @@ Fred vs. ZombieCats is a thrilling game where you play as Fred, the town's last 
 https://fred-vs-zombie-cats.vercel.app/
 
 ## Team Members
-- Pavel Serebrennikov (@SerebrennikovP) ______ *Game, Design, Managment*
-- Shlomo Zion (@shlomozion) ______ *Homepage*
-- Sem (@Bumbox) ______ *Backend, Scoreboard, DeathPage*
+- Pavel Serebrennikov ([@SerebrennikovP](https://github.com/SerebrennikovP)) - *Game, Design, Management*
+- Shlomo Zion ([@shlomozion](https://github.com/shlomozion)) - *Homepage*
+- Sem ([@Bumbox](https://github.com/Bumbox)) - *Backend, Scoreboard, DeathPage*
+
 
 ## Music
 The game features music from the Artlist.io library, providing an immersive audio experience.
