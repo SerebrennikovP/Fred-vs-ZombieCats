@@ -1,10 +1,23 @@
+@media (max-aspect-ratio: 16/9) {
+  .home-page {
+    display: flex;
+  }
+}
 .home-page {
   height: 100vh;
   width: 100vw;
-  display: flex;
   justify-content: center;
+  overflow-y: auto !important;
 }
-.mute-rules{
+.adaptive-text {
+  position: absolute;
+  z-index: 9999999999;
+  color: #ffffff;
+  bottom: 0;
+  padding: 2vw;
+  font-size: 1vw;
+}
+.mute-rules {
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -19,25 +32,25 @@
   animation-fill-mode: forwards;
 }
 @keyframes mute {
-  0%{
-    opacity:100%
+  0% {
+    opacity: 100%;
   }
-  30%{
-    opacity:100%
+  30% {
+    opacity: 100%;
   }
-  83%{
-    opacity:0
+  83% {
+    opacity: 0;
   }
-  100%{
-    opacity:0;
-    display:none
+  100% {
+    opacity: 0;
+    display: none;
   }
 }
 
 .background-image {
   background-image: url("../images/darkforest.gif");
   background-repeat: no-repeat;
-  background-size: 100vw 100vh;
+  background-size: 100% 100%;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -58,7 +71,7 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-delay: calc(3s + 5s * 0.25);
-  flex:1;
+  flex: 1;
   justify-content: center;
 }
 .story {
@@ -78,7 +91,7 @@
 .send-healing-hearts {
   text-align: center;
   font-size: 2vw;
-  font-family: "MarcellusSC"!important
+  font-family: "MarcellusSC" !important;
 }
 
 .instruction-div {
@@ -98,7 +111,7 @@
   display: flex;
   justify-content: center;
   margin-top: 2vh;
-  margin-bottom: 8vh;
+  padding-bottom: 8vh;
 }
 .play-button {
   display: flex;
@@ -141,7 +154,7 @@
   text-align: center;
   white-space: nowrap;
   font-size: 2vw;
-  font-family: "MarcellusSC"!important
+  font-family: "MarcellusSC" !important;
 }
 .right-left-icons {
   display: flex;
