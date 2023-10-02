@@ -19,7 +19,7 @@ The game features music from the Artlist.io library, providing an immersive audi
 In Pleasantville, a catastrophic experiment at a local lab unleashed a virus, turning cats into flesh-eating zombies. Fred, an animal lover, becomes the town's last hope armed with enchanted hearts. He captures infected cats, using the hearts to heal them.
 
 ## How to Play
-- The game is designed to be played on a laptop.
+- The game is designed for desktop.
 - Use the "Space" key to shoot hearts and heal infected cats.
 - Use the "ArrowLeft" and "ArrowRight" keys to move Fred to different positions.
 - Aim to heal as many cats as possible while avoiding attacks from the zombie cats.
