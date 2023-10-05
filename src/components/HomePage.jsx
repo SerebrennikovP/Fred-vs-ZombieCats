@@ -26,7 +26,7 @@ const HomePage = () => {
   useEffect(() => {
     setTimeout(() => {
       setMuteVisible(false);
-    }, 500000);
+    }, 6000);
   }, []);
 
   return (
